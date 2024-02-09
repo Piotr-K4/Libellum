@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/general.css">
+    <link rel="stylesheet" href="../styles/mainpage.css">
+    <link rel="stylesheet" href="../styles/navbar.css">
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/catalog.css">
+    <link rel="stylesheet" href="../styles/topbooks.css">
+    <link rel="stylesheet" href="../styles/userranking.css">
+    <link rel="stylesheet" href="../styles/login_register.css">
+    <link rel="stylesheet" href="../styles/addbook.css">
+    <link rel="stylesheet" href="../styles/account.css">
+    <link rel="shortcut icon" href="../images/iconlogo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Libellum</title>
+</head>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+</style>
+<body>
+    <header class="header">
+        <div class="header__content">
+            <div class="header__logo">
+                <a href="../sites/main.html"><img src="../images/logo.svg"></a>
+            </div>
+            <div class="header__search">
+                <input type="text" placeholder="Wpisz tytuł, autora, słowa kluczowe.....">
+            </div>
+            <div class="header__login">
+                <a href="../sites/login.html">Zaloguj sie</a>
+            </div>
+            <div class="header__user">
+                <button class="header__user__account" onclick="showAccount();"><i class="fa fa-user-circle-o" aria-hidden="true"></i></button>
+                <div class="header__user__account__dropdown">
+                    <div class="header__user__account__dropdowncontent">
+                        <img src="../images/all/joinus.svg">
+                        <p>Dołącz do nas!</p>
+                        <a href="../sites/login.html" class="login">Zaloguj się</a>
+                        <a href="" class="register">Zarejestruj się</a>
+                    </div>
+                </div>
+                <button class="header__user__menu" onclick="showMenu();"><i class="fa fa-bars" aria-hidden="true"></i></button>
+            </div>
+        </div>  
+        <div class="header__search--mobile">
+            <input type="text" placeholder="Wpisz tytuł, autora, słowa kluczowe.....">
+        </div>
+        <nav class="header__navbar">
+            <div class="header__navbar__dropdown">
+                <button class="header__navbar__dropbut">Katalog &#9660;</button>
+                <div class="header__navbar__dropdowncontent">
+                    <a href="../sites/ksiazki.html">Książki</a>
+                    <a href="../sites/autorzy.html">Autorzy</a>
+                    <a href="../sites/cytaty.html">Cytaty</a>
+                </div>
+            </div>
+            <a href="../sites/topbooks.html">TOP 100</a>
+            <div class="header__navbar__dropdown">
+                <button class="header__navbar__dropbut">Społeczność &#9660;</button>
+                <div class="header__navbar__dropdowncontent">
+                    <a href="../sites/userranking.html">Ranking</a>
+                </div>
+            </div>
+            <a href="../sites/addbook.html">Dodaj książke</a>
+        </nav> 
+        <div class="header__navbarMobile__dropdown">
+            <div class="header__navbarMobile__dropdowncontent">
+                <ul class="header__navbarMobile__links">
+                    <li onclick="showKatalog();">Katalog <span class="arrow_close">&#9656;</span><span class="arrow_open">&#9660;</span></li>
+                    <ul class="header__navbarMobile__sublinks" id="katalogSublinks">
+                        <li><a href="../sites/ksiazki.html">Książki</a></li>
+                        <li><a href="../sites/autorzy.html">Autorzy</a></li>
+                        <li><a href="../sites/cytaty.html">Cytaty</a></li>
+                    </ul>
+                    <li><a href="../sites/topbooks.html">TOP 100</a></li>
+                    <li onclick="showSpolecznosc();">Społeczność <span class="arrow_close">&#9656;</span><span class="arrow_open">&#9660;</span></li>
+                    <ul class="header__navbarMobile__sublinks" id="spolecznoscSublinks">
+                        <li><a href="../sites/userranking.html">Ranking</a></li>
+                    </ul>
+                    <li><a href="../sites/addbook.html">Dodaj książke</a></li>
+                </ul>
+            </div>
+        </div>
+    </header> 
+
+    <main class="pageContainer">
+        <div class="accountPage">
+            <div class="accountPage__content">
+                <div class="accountPage__banner">
+                    <div class="accountPage__banner__userProfile--wrap">
+                        <div class="accountPage__banner__userProfile">
+                            <img src="../images/all/terry.jpg">
+                        </div>
+                    </div>
+                    <div class="accountPage__banner__userInfo">
+                        <div class="accountPage__banner__userInfo--label">CZEŚĆ <strong>TERRY DAVIS</strong></div>
+                        <div class="accountPage__banner__userInfo--statsWrap">
+                            <div class="accountPage__banner__userInfo--stats">
+                                <div class="accountPage__banner__userInfo--statsCounter">0</div>
+                                <div class="accountPage__banner__userInfo--statsCategory">PRZECZYTANYCH<br>KSIĄŻEK</div>
+                            </div>
+                            <div class="accountPage__banner__userInfo--stats">
+                                <div class="accountPage__banner__userInfo--statsCounter">0</div>
+                                <div class="accountPage__banner__userInfo--statsCategory">PRZECZYTANYCH<br>KSIĄŻEK</div>
+                            </div>
+                            <div class="accountPage__banner__userInfo--stats">
+                                <div class="accountPage__banner__userInfo--statsCounter">0</div>
+                                <div class="accountPage__banner__userInfo--statsCategory">PRZECZYTANYCH<br>KSIĄŻEK</div>
+                            </div>
+                            <div class="accountPage__banner__userInfo--stats">
+                                <div class="accountPage__banner__userInfo--statsCounter">0</div>
+                                <div class="accountPage__banner__userInfo--statsCategory">PRZECZYTANYCH<br>KSIĄŻEK</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accountPage__library">
+                    <div class="label accountPage__library--label">BIBLIOTECZKA</div>
+                    <div class="accountPage__library__content">
+                        <div class="accountPage__library--category">
+                            <h3>PRZECZYTANE</h3>
+                            <hr>
+                            <p>1 KSIĄŻKA</p>
+                            <iconify-icon icon="tdesign:chat-checked"></iconify-icon>
+                        </div>
+                        <div class="accountPage__library--category">
+                            <h3>TERAZ CZYTAM</h3>
+                            <hr>
+                            <p>1 KSIĄŻKA</p>
+                            <iconify-icon icon="pajamas:book"></iconify-icon>
+                        </div>
+                        <div class="accountPage__library--category">
+                            <h3>CHCE PRZECZYTAĆ</h3>
+                            <hr>
+                            <p>1 KSIĄŻKA</p>
+                            <iconify-icon icon="streamline:travel-wayfinder-lifebuoy-water-life-ring-wheely-lifebelt-kisbee"></iconify-icon>
+                        </div>
+                    </div>
+                </div>
+                <div class="accountPage__stats">
+                    <div class="label accountPage__stats--label">MOJE STATYSTYKI</div>
+                    <div class="accountPage__stats__content">
+                        <div class="accountPage__stats__category">
+                            <iconify-icon icon="bi:book" class="userranking__items-content-label-icon"></iconify-icon>
+                            <p>W sumie przeczytano</p>
+                            <hr>
+                            <h1>1</h1>
+                            KSIĄŻEK
+                        </div>
+                        <div class="accountPage__stats__category">
+                            <iconify-icon icon="mdi:draw-pen" class="userranking__items-content-label-icon" rotate="90deg"></iconify-icon>
+                            <p>W sumie wydanych</p>
+                            <hr>
+                            <h1>1</h1>
+                            OPINI 
+                        </div>
+                        <div class="accountPage__stats__category">
+                            <iconify-icon icon="tabler:quote" class="userranking__items-content-label-icon"></iconify-icon>
+                            <p>W sumie dodanych</p>
+                            <hr>
+
+                            <h1>1</h1>
+                            CYTATÓW
+                        </div>
+                        <div class="accountPage__stats__category">
+                            <iconify-icon icon="bi:book" class="userranking__items-content-label-icon"></iconify-icon>
+                            <p>W sumie dodanych</p>
+                            <hr>
+                            <h1>1</h1>
+                            KSIĄŻEK
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+    <script src="../js/main.js"></script>
+    <script src="../js/catalog.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+</html>

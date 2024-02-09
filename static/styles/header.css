@@ -1,0 +1,279 @@
+.header{
+    width:100%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+}
+
+
+.header__content{
+    height: 80px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 2px solid #dedede ;
+    background-color: #ffff;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+}
+
+.header__logo{
+    height: 70%;
+    flex:0.1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header__logo a{
+    height: 100%;
+}
+
+.header__logo img{
+    height: 100%;
+}
+
+.header__search{
+    height: 100%;
+    min-width: 40%;
+    flex:0.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__search input, .header__search--mobile input{
+    width: 80%;
+    height: 50%;
+    outline:none;
+    border:solid 1px #d1d1d1;
+    color:#d1d1d1;
+    font-size: 0.9em;
+}
+
+.header__search input:focus, .header__search--mobile input:focus{
+    outline:1px solid #a1a1a1;
+}
+
+.header__search--mobile{
+    display: none;
+    height: 40px;
+    width: 90%;
+    text-align: center;
+}
+
+.header__search--mobile input{
+    width: 90%;
+    height: 100%;
+}
+
+.header__login{
+    flex:0.1;
+    text-align: right;
+}
+
+
+.header__login a{
+    text-decoration: none;
+    background-color: #ffda1d;
+    font-size:1rem;
+    color: white;
+    padding: 0.4em 0.9em; 
+}
+
+.header__user{
+    height: 100%;
+    flex:0.1;
+    font-size: 2em;
+    display: flex;
+    justify-content:start ;
+    align-items: center;
+    text-decoration: none;
+}
+
+.header__user i{
+    color:#ffda1d;
+    padding: 5px;
+    transition: 0.4s;
+}
+
+.header__user i:hover{
+    color:white;
+    border-radius:2em;
+    background-color: #ffda1d;
+}
+
+.header__user .header__user__account,
+.header__user .header__user__menu{
+    border: none;
+    background-color: white;
+    font-size: 1em;
+}
+
+.header__user__account__dropdown{
+    position: relative;
+    display: none;
+}
+
+.header__user__account__dropdowncontent{
+    background-color: #fff;
+    position: absolute;
+    width: 250px;
+    right: 0;
+    top: 30px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: end;
+    align-items: center;
+    gap:0.5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    box-shadow: 0px 0px 26px -6px rgba(66, 68, 90, 1);
+}
+
+.header__user__account__dropdowncontent a {
+    width: 50%;
+    text-decoration: none;
+    font-size:1rem;
+    border: 2px solid black;
+    padding: 0.6em 0; 
+    transition: 0.4s;
+}
+
+.header__user__account__dropdowncontent{
+    font-size: 1rem;
+}
+
+.header__user__account__dropdowncontent .login{
+    color:white;
+    background-color: #ffd91d;
+    border-color: #ffd91d;
+}
+
+.header__user__account__dropdowncontent .login:hover{
+    color:#ffd91d;
+    background-color: #fff;
+    border-color: #ffd91d;
+}
+
+.header__user__account__dropdowncontent .register{
+    color:#ffd91d;
+    background-color: #fff;
+    border-color: #ffd91d;
+}
+
+.header__user__account__dropdowncontent .register:hover{
+    color:#fff;
+    background-color:#ffd91d;
+    border-color: #ffd91d;
+}
+
+.header__navbarMobile__dropdown{
+    display: none;
+    width: 100%;
+}
+
+.header__navbarMobile__dropdowncontent{
+    width: 100%;
+    font-size: 1.4em;
+    font-weight: 500;
+}
+
+.header__navbarMobile__links{
+    list-style: none;
+    line-height: 2em;
+}
+
+.header__navbarMobile__links a{
+    text-decoration: none;
+    color: black;
+}
+
+.header__navbarMobile__links .header__navbarMobile__sublinks{
+    list-style:square;
+    font-weight: 400;
+    display: none;
+    line-height: 1.3em;
+}
+
+.arrow_open{
+    display: none;
+}
+
+.header__user .header__user__menu{
+    display: none;
+}
+
+#spolecznoscSublinks{
+    display: none;
+}
+
+
+@media (max-width:1385px) and (min-width:990px){
+    .header__login{
+        display: none;
+    }
+    .header__search{
+        flex:0.7
+    }
+
+    .header__navbarMobile__dropdowncontent{
+        display: none;
+    }
+
+
+}
+
+@media(max-width:990px){
+    .header__user .header__user__account,
+    .header__user__account__dropdowncontent,
+    .header__navbar{
+        display: none;
+    }
+    .header__content{
+        border:none;
+    }
+
+    .header__user .header__user__menu{
+        display:block ;
+    }
+    .header__login{
+        display: block;
+        flex:0.2;
+    }
+    .header__login a{
+        color: #ffda1d;
+        font-weight: bold;
+        background-color: transparent;
+    }
+    .header__search{
+        flex:0.55;
+    }
+    
+}
+
+@media(min-width:680px){
+    .header__search--mobile{
+        display: none;
+    }
+    
+}
+
+@media(max-width:680px){
+    .header__login{
+        flex:0.7;
+    }
+    .header{
+        padding-bottom:60px;
+    }
+    .header__search{
+        display: none;
+    }
+    .header__search--mobile{
+        display: block;
+    }
+}

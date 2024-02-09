@@ -1,0 +1,198 @@
+{% extends "main.html" %}
+
+
+{% block content %}
+{% load static %}
+        <section class="catalog__banner">
+            <img src="{% static "/images/all/library.webp" %}">
+        </section>
+        <section class="catalog__content">
+            <button class="filters__mobile" onclick="showFilters();">FILTRY</button>
+            <div class="filters__content">
+                <div class="label">FILTRY</div>
+                <!-- KATEGORIE -->
+                <div class="subtitle">KSIĄŻKI Z KATEGORII</div>
+                <div class="filters__bookcategories">
+                    <div class="filters__bookcategories--content">
+                        <div class="filters__bookcategories__list">
+                            <div class="bookcategory">
+                                <div class="bookcategory__label" onclick="toggleGenres(this)"><span class="arrow">&#10148; </span>Beletrystyka</div>
+                                <ul class="bookcategory__genres">
+                                    <li><input type=checkbox><label>Fantasy, since fiction</label></li>
+                                    <li><input type=checkbox><label>kryminał, sensacja, thriller</label></li>
+                                    <li><input type=checkbox><label>literatura młodzieżowa</label></li>
+                                    <li><input type=checkbox><label>literatura piękna</label></li>
+                                </ul>
+                            </div>
+
+                            <div class="bookcategory">
+                                <div class="bookcategory__label" onclick="toggleGenres(this)"><span class="arrow">&#10148; </span>Literatura faktu</div>
+                                <ul class="bookcategory__genres">
+                                    <li><input type=checkbox>publicystyka</li>
+                                    <li><input type=checkbox>literacka, eseje</li>
+                                </ul>
+                            </div>
+
+                            <div class="bookcategory">
+                                <div class="bookcategory__label" onclick="toggleGenres(this)"><span class="arrow">&#10148; </span>Literatura dziecięca</div>
+                                <ul class="bookcategory__genres">
+                                    <li><input type=checkbox>literatura dziecięca</li>
+                                    <li><input type=checkbox>opowiadania dla dzieci</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+<!--                 TAGI -->
+                <div class="subtitle">TAGI</div>
+                <div class="filters__tags">
+                    <div class="filters__tags--content">
+                        <div class="filters__search">
+                            <input type="text" placeholder="Wyszukaj według tagu">
+                        </div>
+                        <div class="subtitle">Najpopularniejsze</div>
+                        <div class="filters__tags__list">
+                            <div class="filters__tags__record">
+                                <input type="checkbox">
+                                <label>historia</label>
+                            </div>
+                            <div class="filters__tags__record">
+                                <input type="checkbox">
+                                <label>romans</label>
+                            </div>
+                            <div class="filters__tags__record">
+                                <input type="checkbox">
+                                <label>literatura polska</label>
+                            </div>
+                            <div class="filters__tags__record">
+                                <input type="checkbox">
+                                <label>uczucia</label>
+                            </div>
+                            <div class="filters__tags__record">
+                                <input type="checkbox">
+                                <label>miłość</label>
+                            </div>
+                            <div class="filters__tags__record">
+                                <input type="checkbox">
+                                <label>manga</label>
+                            </div>
+                            <div class="filters__tags__record">
+                                <input type="checkbox">
+                                <label>fantasy</label>
+                            </div>
+                            <div class="filters__tags__record">
+                                <input type="checkbox">
+                                <label>filozofia</label>
+                            </div>
+                            <div class="filters__tags__record">
+                                <input type="checkbox">
+                                <label>II wojna światowa</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- DATA WYDANIA -->
+                <div class="subtitle">DATA WYDANIA</div>
+                <div class="filters__daterelease">
+                    <div class="filters__daterelease--content">
+                        <div>
+                            OD
+                            <input type="number">
+                        </div>
+                        <div>
+                            DO
+                            <input type="number">
+                        </div>
+                    </div>
+                </div>
+                <!-- AUTORZY -->
+                <div class="subtitle">AUTORZY</div>
+                <div class="filters__authors">
+                    <div class="filters__authors--content">
+                        <div class="filters__search">
+                            <input type="text" placeholder="Wyszukaj autora">
+                        </div>
+                        <div class="subtitle">Najpopularniejsi</div>
+                        <div class="filters__authors__list">
+                            <div class="filters__authors__record">
+                                <input type="checkbox">
+                                <label>andrzej sapkowski</label>
+                            </div>
+                            <div class="filters__authors__record">
+                                <input type="checkbox">
+                                <label>jakub żulczyk</label>
+                            </div>
+                            <div class="filters__authors__record">
+                                <input type="checkbox">
+                                <label>dmitrij głuchowski</label>
+                            </div>
+                            <div class="filters__authors__record">
+                                <input type="checkbox">
+                                <label>andrzej sapkowski</label>
+                            </div>
+                            <div class="filters__authors__record">
+                                <input type="checkbox">
+                                <label>jakub żulczyk</label>
+                            </div>
+                            <div class="filters__authors__record">
+                                <input type="checkbox">
+                                <label>dmitrij głuchowski</label>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- WYDAWNICTWA -->
+                <div class="subtitle">WYDAWNICTWA</div>
+                <div class="filters__publishers">
+                    <div class="filters__publishers--content">
+                        <div class="filters__search">
+                            <input type="text" placeholder="Wyszukaj wydawnictwa">
+                        </div>
+                        <div class="subtitle">Najpopularniejsi</div>
+                        <div class="filters__publishers__list">
+                            <div class="filters__publishers__record">
+                                <input type="checkbox">
+                                <label>Andrzej Sapkowski</label>
+                            </div>
+                            <div class="filters__publishers__record">
+                                <input type="checkbox">
+                                <label>Jakub Żulczyk</label>
+                            </div>
+                            <div class="filters__publishers__record">
+                                <input type="checkbox">
+                                <label>Dmitrij Głuchowski</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="filters__mobile--exit" onclick="hideFilters();">WYJŚCIE</button>
+            </div>
+            <div class="books__content">
+                <div class="label">KSIĄŻKI</div>
+                <div class="sort">
+                    <label>Sortuj:</label>
+                    <select>
+                        <option>Data wydania malejąco</option>
+                    </select>
+                </div>
+                <div class="books__list">
+                    {% for book in books%}
+                    <div class="book">
+                        <div class="book__picture">
+                            <img src="{{book.image.url}}">
+                        </div>
+                        <div class="book__info">
+                            <h3 class="info__title"><a href="{{book.id}}">{{book.title}}</a></h3>
+                            <p class="info__author"><a href="{{book.id}}">{{book.author}}</a></p>
+                            <div class="book__buttons">
+                                <button class="book__button">DODAJ NA PÓŁKĘ</button>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+{% endblock content %}

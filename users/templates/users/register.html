@@ -1,0 +1,45 @@
+ {% extends "main.html" %} 
+ {% load static %}
+  
+  <main class="pageContainer">
+      {% block content %}
+        <section class="login__wrap">
+            <div class="login__content">
+                <div class="login__header">
+                    <h1 class="login__header__label">Dołącz do nas</h1>
+                    <h3 class="login__header__label--light">Jesteś już zarejestrowany? <a href="../sites/login.html">Zaloguj się</a></h3>
+                    <hr>
+                </div>
+                <form class="login__form" method="POST">
+                    {% csrf_token %}
+                    {% comment %} <div class="login__form__field">
+                        <label for="nick">Nick</label>
+                        <input type="text"  class="login__form__field--inputText" name="nick" placeholder="Podaj Imię/Nick">
+                    </div>
+                    <div class="login__form__field">
+                        <label for="email">Email</label>
+                        <input type="text"  class="login__form__field--inputText" name="email" placeholder="Podaj Email">
+                    </div>
+                    <div class="login__form__field">
+                        <label class="login__form__field" for="password">Hasło</label>
+                        <input type="text" class="login__form__field--inputText" name="password" placeholder="Podaj Hasło">
+                    </div>
+                    <div class="login__form__field">
+                        <label class="login__form__field" for="password">Powótrz Hasło</label>
+                        <input type="text" class="login__form__field--inputText" name="password" placeholder="Powótrz Hasło">
+                    </div>
+                    <div class="login__form__loginbut__wrap">
+                        <input type="submit" class="login__form__loginbut" value="ZAREJESTRUJ SIĘ">
+                    </div> {% endcomment %}
+                    {% for field in form  %}
+                        <label for="{{field.label}}">{{field.label}}</label>
+                        {{field}}
+                    {% endfor %}
+                    <div class="login__form__loginbut__wrap">
+                        <input type="submit" class="login__form__loginbut" value="ZAREJESTRUJ SIĘ">
+                    </div> 
+                </form>
+            </div>
+        </section>
+        {% endblock content %}
+    </main>

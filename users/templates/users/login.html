@@ -1,0 +1,26 @@
+{% extends 'main.html'%}
+{% load static %}
+
+{% block content %}
+        <section class="login__wrap">
+            <div class="login__content">
+                <div class="login__header">
+                    <h1 class="login__header__label">Witaj ponownie</h1>
+                    <h3 class="login__header__label--light">Jesteś tutaj nowy? <a href="{% url "register" %}">Zarejestruj się</a></h3>
+                    <hr>
+                </div>
+                <form class="login__form" method="POST">
+                    {% csrf_token %}
+                    {% for field in form  %}
+                    <div class="login__form__field">
+                        <label for="email">{{field.label}}</label>
+                        {{field}}
+                    </div>
+                    {% endfor %}
+                    <div class="login__form__loginbut__wrap">
+                        <input type="submit" class="login__form__loginbut" value="ZALOGUJ SIĘ">
+                    </div>
+                </form>
+            </div>
+        </section>
+{% endblock content %}

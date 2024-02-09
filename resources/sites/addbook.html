@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/general.css">
+    <link rel="stylesheet" href="../styles/mainpage.css">
+    <link rel="stylesheet" href="../styles/navbar.css">
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/catalog.css">
+    <link rel="stylesheet" href="../styles/topbooks.css">
+    <link rel="stylesheet" href="../styles/userranking.css">
+    <link rel="stylesheet" href="../styles/login_register.css">
+    <link rel="stylesheet" href="../styles/addbook.css">
+    <link rel="shortcut icon" href="../images/iconlogo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Libellum</title>
+</head>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+</style>
+<body>
+    <header class="header">
+        <div class="header__content">
+            <div class="header__logo">
+                <a href="../sites/main.html"><img src="../images/logo.svg"></a>
+            </div>
+            <div class="header__search">
+                <input type="text" placeholder="Wpisz tytuł, autora, słowa kluczowe.....">
+            </div>
+            <div class="header__login">
+                <a href="../sites/login.html">Zaloguj sie</a>
+            </div>
+            <div class="header__user">
+                <button class="header__user__account" onclick="showAccount();"><i class="fa fa-user-circle-o" aria-hidden="true"></i></button>
+                <div class="header__user__account__dropdown">
+                    <div class="header__user__account__dropdowncontent">
+                        <img src="../images/all/joinus.svg">
+                        <p>Dołącz do nas!</p>
+                        <a href="../sites/login.html" class="login">Zaloguj się</a>
+                        <a href="" class="register">Zarejestruj się</a>
+                    </div>
+                </div>
+                <button class="header__user__menu" onclick="showMenu();"><i class="fa fa-bars" aria-hidden="true"></i></button>
+            </div>
+        </div>  
+        <div class="header__search--mobile">
+            <input type="text" placeholder="Wpisz tytuł, autora, słowa kluczowe.....">
+        </div>
+        <nav class="header__navbar">
+            <div class="header__navbar__dropdown">
+                <button class="header__navbar__dropbut">Katalog &#9660;</button>
+                <div class="header__navbar__dropdowncontent">
+                    <a href="../sites/ksiazki.html">Książki</a>
+                    <a href="../sites/autorzy.html">Autorzy</a>
+                    <a href="../sites/cytaty.html">Cytaty</a>
+                </div>
+            </div>
+            <a href="../sites/topbooks.html">TOP 100</a>
+            <div class="header__navbar__dropdown">
+                <button class="header__navbar__dropbut">Społeczność &#9660;</button>
+                <div class="header__navbar__dropdowncontent">
+                    <a href="../sites/userranking.html">Ranking</a>
+                </div>
+            </div>
+            <a href="../sites/addbook.html">Dodaj książke</a>
+        </nav> 
+        <div class="header__navbarMobile__dropdown">
+            <div class="header__navbarMobile__dropdowncontent">
+                <ul class="header__navbarMobile__links">
+                    <li onclick="showKatalog();">Katalog <span class="arrow_close">&#9656;</span><span class="arrow_open">&#9660;</span></li>
+                    <ul class="header__navbarMobile__sublinks" id="katalogSublinks">
+                        <li><a href="../sites/ksiazki.html">Książki</a></li>
+                        <li><a href="../sites/autorzy.html">Autorzy</a></li>
+                        <li><a href="../sites/cytaty.html">Cytaty</a></li>
+                    </ul>
+                    <li><a href="../sites/topbooks.html">TOP 100</a></li>
+                    <li onclick="showSpolecznosc();">Społeczność <span class="arrow_close">&#9656;</span><span class="arrow_open">&#9660;</span></li>
+                    <ul class="header__navbarMobile__sublinks" id="spolecznoscSublinks">
+                        <li><a href="../sites/userranking.html">Ranking</a></li>
+                    </ul>
+                    <li><a href="../sites/addbook.html">Dodaj książke</a></li>
+                </ul>
+            </div>
+        </div>
+    </header> 
+
+
+    <main class="pageContainer">
+        <div class="addbook">
+            <div class="addbook__content">
+                <div class="label addbook__label">DODAJ KSIĄŻKE</div>
+                <form>
+                    <div class="addbook__subtitle">PODSTAWOWE INFORMACJE O KSIĄŻCE</div>
+                    <div class="addbook__basicInfo">
+                        <div class="addbook__basicInfo--inputFile">
+                            <div class="addbook_formField">
+                                <input type="file" hidden id="upload">
+                                <label for="upload" class="addbook__basicInfo__inputFile--button">DODAJ OKŁADKE</label>
+                                <p>Maksymalny rozmiar pliku 1MB</p>
+                            </div>
+                        </div>
+                        <div class="addbook__basicInfo--inputText">
+                            <div class="addbook_formField">
+                                <p>Tytuł książki</p>
+                                <input type="text" placeholder="Wpisz conajmniej 5 znaków">
+                            </div>
+                            <div class="addbook_formField">
+                                <p>Autor</p>
+                                <input type="text" placeholder="Wpisz conajmniej 5 znaków">
+                            </div>
+                            <div class="addbook_formField">
+                                <p>Kategoria</p>
+                                <input type="text" placeholder="Wpisz conajmniej 5 znaków">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="addbook__subtitle">OPIS KSIĄŻKI</div>
+                    <div class="addbook__desciptionInfo">
+                        <div class="addbook_formField">
+                            <p>Napisz o czy jest książka</p>
+                            <textarea placeholder="Wpisz conajmniej 5 znaków"></textarea>
+                        </div>
+                        <div class="addbook_formField">
+                            <p>Źródło opisu</p>
+                            <input type="text" placeholder="Źródło pochodzi od wydawcy">
+                        </div>
+                        <div class="addbook_formField">
+                            <p>Tagi</p>
+                            <input type="text" placeholder="Wypisz tagi oddzielając przecinkiem">
+                        </div>
+                    </div>
+
+                    <div class="addbook__subtitle">INFORMACJA O WYDANIU</div>
+                    <div class="addbook__publisherInfo">
+                        <div class="addbook_formField">
+                            <p>Wydawnictwa</p>
+                            <input type="text" placeholder="Wpisz conajmniej 5 znaków">
+                        </div>
+                        <div class="addbook_formField">
+                            <p>Data wydania</p>
+                            <input type="date">
+                        </div>
+                        <div class="addbook_formField">
+                            <p>Identyfikator IBSN</p>
+                            <input type="text" placeholder="Wpisz conajmniej 5 znaków">
+                        </div>
+                        <div class="addbook_formField">
+                            <p>Liczba stron</p>
+                            <input type="number" placeholder="100 stron" min="1" max="2000">
+                        </div>
+                        <div class="addbook_formField">
+                            <p>Język wydania</p>
+                            <input type="text" placeholder="polski">
+                        </div>
+                    </div>
+                    <input type="submit" value="DODAJ KSIĄŻKE" class="addbook__submit">
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+    <script src="../js/main.js"></script>
+    <script src="../js/catalog.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+</html>

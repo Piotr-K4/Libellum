@@ -1,0 +1,150 @@
+.addbook{
+    width: 100%;
+    padding-bottom: 5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:1em;
+    box-sizing: border-box;
+}
+
+.addbook__content{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 1em;
+}
+
+.addbook__subtitle{
+    color: #fff;
+    background-color: #ffda1d;
+    text-align: left; 
+    padding: 1em;
+}
+
+.addbook_formField input[type='text'],
+.addbook_formField input[type='number'],
+.addbook_formField select,
+.addbook_formField textarea{
+    height: 2em;
+    width: 90%;
+    border:none;
+    border-bottom: 2px solid grey;
+    outline: none;
+    transition: 0.4s;
+}
+
+.addbook_formField input[type='number'],
+.addbook_formField select{
+    width: 100px;
+}
+
+.addbook_formField textarea{
+    box-sizing: border-box;
+    border: 2px solid grey;
+    height: 150px;
+}
+
+.addbook_formField input:hover[type='text'],
+.addbook_formField input:hover[type='number'],
+.addbook_formField select,
+.addbook_formField textarea:hover{
+    border-color: #ffda1d; 
+}
+
+.addbook__basicInfo,
+.addbook__desciptionInfo,
+.addbook__publisherInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2em 0em;
+    box-sizing: border-box;
+    gap: 1em;
+}
+
+
+
+
+.addbook__basicInfo{
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+}
+
+
+.addbook__basicInfo--inputText{
+    width: 50%;
+}
+.addbook__basicInfo--inputFile{
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 1em;
+    background-color: #f0f0f0;
+    border: 1px dashed #c0c0c0;
+    gap: 1em;
+}
+
+.addbook__basicInfo__inputFile--button,
+.addbook__submit{
+    border: 2px solid #ffda1d;
+    color: #ffda1d;
+    padding: 0.5em 1em;
+    box-sizing: border-box;
+    transition: 0.4s;
+}
+
+.addbook__submit{
+    background-color: transparent;
+    padding: 1em 2em;
+}
+
+.addbook__basicInfo__inputFile--button:hover,
+.addbook__submit:hover{
+    background-color: #ffda1d;
+    color: #fff;
+}
+
+
+@media (max-width:1450px){
+    .addbook__content{
+        width: 60%;
+    }
+}
+
+@media (max-width:1200px){
+    .addbook__content{
+        width: 70%;
+    }
+}
+
+@media (max-width:990px){
+    .addbook__content{
+        width: 80%;
+    }
+}
+
+
+@media(max-width:680px){
+    .addbook__content{
+        width: 90%;
+    }
+
+    .addbook__basicInfo{
+        flex-direction: column;
+    }
+
+    .addbook__basicInfo--inputText{
+        width: 100%;
+    }
+
+    .addbook__basicInfo--inputFile{
+        height: 200px;
+        justify-content: center;
+    }
+}
+
+
+
+

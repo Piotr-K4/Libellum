@@ -1,0 +1,54 @@
+.quote__content{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap:1em;
+}
+
+.quotes__list{
+    width: 40%;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.quotes__toplist{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 100%;
+}
+
+.quotes__toplist__entry{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding:1em;
+    box-sizing: border-box;
+    gap: 1em;
+    width: 100%;
+    background-color: #fdfdfb;
+    box-shadow: 5px 5px 10px rgba(229, 229, 229, 0.3);
+    border-bottom: 1px solid #dedede ;
+}
+
+@media (max-width:1385px) and (min-width:990px){
+    .quotes__list{
+        width: 45%
+    }
+}
+
+@media (max-width:1050px){
+    .quote__content{
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .quotes__list{
+        width: 80%;
+    }
+}
+

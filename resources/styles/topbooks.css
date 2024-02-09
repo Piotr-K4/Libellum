@@ -1,0 +1,30 @@
+.topbooks__body{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap:1em;
+}
+
+
+.topbooks{
+    width: 70%;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+@media (max-width:1050px){
+    .topbooks{
+        width: 80%;
+    }
+}
+
+@media(max-width:680px){
+    .topbooks{
+        width: 90%;
+    }
+}
+
