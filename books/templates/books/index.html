@@ -1,6 +1,6 @@
-<h1>SIEMA</h1>
-
-
-{% for book in books%}
-<p>{{book.pages}}</p>
-{% endfor %}
+{% extends "main.html" %}
+{% block content %}
+{% if user.is_authenticated %}
+<h1>SIEMA {{user.username}}</h1>
+{% endif %}
+{% endblock content %}

@@ -9,7 +9,7 @@ from .forms import BookForm
 
 def index(request):
 
-    return render(request,"main.html")
+    return render(request,"books/index.html")
 
 
 def books(request):

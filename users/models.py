@@ -7,12 +7,18 @@ from django.forms import ModelForm, widgets
 # Create your models here.
 
 
+
+
 class Profil(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    username = models.CharField(max_length=200, blank=False, null=True)
 
 
 
-    @receiver(post_save, sender=User)
-    def create_profile(sender, instance, created , **kwargs):
-        if created:
-            Profil.objects.create(user=instance)
+    # @receiver(post_save, sender=User)
+    # def create_profile(sender, instance, created , **kwargs):
+    #     if created:
+    #         Profil.objects.create(user=instance)
+
+    def __str__(self):
+        return self.user.username
