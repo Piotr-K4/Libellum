@@ -10,8 +10,19 @@ from django.forms import ModelForm, widgets
 
 
 class Profil(models.Model):
+    sex = (
+            ("Mężczyzna","Mężczyzna"),
+            ("Kobieta","Kobieta"),
+            )
+
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     username = models.CharField(max_length=200, blank=False, null=True)
+    profileImage = models.ImageField(upload_to="profiles/", default="profiles/user_default.png")
+    dateBirth = models.DateField(default="1990-01-01")
+    sexUser = models.CharField(choices=sex, default="Kobieta")
+    description = models.TextField(max_length=500, blank=False, null=True)
+    
+    
 
 
 

@@ -1,0 +1,42 @@
+{% extends 'main.html'%}
+{% load static %}
+
+{% block content %}
+<div class="usersettings">
+            <div class="usersettings__content">
+                <div class="label usersettings__label">USTAWIENIA</div>
+                <div class="usersettings__userProfile">
+                    <img src="{{profil.profileImage.url}}">
+                    <p class="usersettings__subtitle--value">Avatar</p>
+                </div>
+                <div class="usersettings__userInfo">
+                    <div class="usersettings__userInfo__field">
+                        <p class="usersettings__subtitle">Pseudonim</p>
+                        <p class="usersettings__subtitle--value">{{profil.username}}</p>
+                    </div>
+                    <div class="usersettings__userInfo__field">
+                        <p class="usersettings__subtitle">Imie</p>
+                        <p class="usersettings__subtitle--value">{{profil.user.first_name}}</p>
+                    </div>
+                    <div class="usersettings__userInfo__field">
+                        <p class="usersettings__subtitle">Nazwisko</p>
+                        <p class="usersettings__subtitle--value">{{profil.user.last_name}}</p>
+                    </div>
+                    <div class="usersettings__userInfo__field">
+                        <p class="usersettings__subtitle">Płeć</p>
+                        <p class="usersettings__subtitle--value">{{profil.sexUser}}</p>
+                    </div>
+                    <div class="usersettings__userInfo__field">
+                        <p class="usersettings__subtitle">Data urodzenia</p>
+                        <p class="usersettings__subtitle--value">{{profil.dateBirth}}</p>
+                    </div>
+                    <div class="usersettings__userInfo__field">
+                        <p class="usersettings__subtitle">Opis</p>
+                        <p class="usersettings__subtitle--value">{{profil.description}}</p>
+                    </div>
+                </div>
+
+                <a href="{% url "user-Editsettings" %}" class="usersettings__submit">EDYTUJ KONTO</a>
+            </div>
+        </div>
+{% endblock content %}

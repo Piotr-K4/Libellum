@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import UserCreateForm, UserLoginForm
+from .forms import UserCreateForm, UserLoginForm, UserEditSettingsForm
 from .models import Profil,User
 from django.contrib.auth import login, authenticate
 
@@ -52,4 +52,30 @@ def userlogin(request):
 
 
 def userAccount(request):
-    return render(request, "users/account.html")
+    profil = Profil.objects.get(user=request.user)
+    context = {"profil":profil}
+    return render(request, "users/account.html", context)
+
+
+def userSettings(request):
+    profil = Profil.objects.get(user=request.user)
+    context = {"profil":profil}
+    return render(request, "users/settings.html", context)
+
+def userEditSettings(request):
+    user = request.user.profil
+    form = UserEditSettingsForm(instance=user)
+    context = {"form":form}
+
+
+    if request.method == "POST":
+        form = UserEditSettingsForm(request.POST, request.FILES, instance=user)
+        if form.is_valid():
+            form.save()
+            return redirect("user-settings")
+
+
+    return render(request, "users/editsettings.html", context)
+
+
+

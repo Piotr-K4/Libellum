@@ -23,4 +23,15 @@ class UserLoginForm(AuthenticationForm):
         model = User
         fields = "__all__"
 
+class UserEditSettingsForm(ModelForm):
+    class Meta:
+        model = Profil
+        exclude = ["user",]
+        labels = {
+                "username":"Pseudonim",
+                "profileImage":"Zdjęcie profilowe",
+                "dateBirth":"Data urodzenia",
+                "sexUser":"Płeć",
+                "description":"Opis"
+                }
 
