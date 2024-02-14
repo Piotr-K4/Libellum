@@ -44,7 +44,9 @@
 
 .usersettings__userProfile img{
     border-radius: 50%;
-    width: 100%;
+    width: 150px;
+    height: 150px;
+    background-position: center;
 }
 
 .usersettings__userInfo{
