@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from .forms import UserCreateForm, UserLoginForm, UserEditSettingsForm
 from .models import Profil,User
 from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 
@@ -49,6 +51,9 @@ def userlogin(request):
 
     return render(request, "users/login.html", context)
 
+
+
+@login_required(login_url="login")
 def userLogout(request):
     if request.method == "POST":
         logout(request)
@@ -57,17 +62,20 @@ def userLogout(request):
     return render(request, "users/logout.html")
 
 
+@login_required(login_url="login")
 def userAccount(request):
     profil = Profil.objects.get(user=request.user)
     context = {"profil":profil}
     return render(request, "users/account.html", context)
 
 
+@login_required(login_url="login")
 def userSettings(request):
     profil = Profil.objects.get(user=request.user)
     context = {"profil":profil}
     return render(request, "users/settings.html", context)
 
+@login_required(login_url="login")
 def userEditSettings(request):
     user = request.user.profil
     form = UserEditSettingsForm(instance=user)

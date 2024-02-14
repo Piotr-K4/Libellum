@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Book
 from .forms import BookForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -25,6 +26,7 @@ def book(request,pk):
     return render(request,"books/book.html",context)
     
 
+@login_required(login_url="login")
 def addbook(request):
     form = BookForm()
     
