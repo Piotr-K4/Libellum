@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import UserCreateForm, UserLoginForm, UserEditSettingsForm
 from .models import Profil,User
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 
 # Create your views here.
 
@@ -49,6 +49,12 @@ def userlogin(request):
 
     return render(request, "users/login.html", context)
 
+def userLogout(request):
+    if request.method == "POST":
+        logout(request)
+        return redirect("index")
+
+    return render(request, "users/logout.html")
 
 
 def userAccount(request):

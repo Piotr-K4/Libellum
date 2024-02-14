@@ -1,0 +1,19 @@
+{% extends 'main.html'%}
+{% load static %}
+
+{% block content %}
+<section class="login__wrap">
+            <div class="login__content">
+                <div class="login__header">
+                    <h1 class="login__header__label">Czy chcesz się wylogować</h1>
+                </div>
+                <form class="login__form" method="POST">
+                    {% csrf_token %}
+                    <div class="login__form__loginbut__wrap">
+                        <input type="submit" class="login__form__loginbut" value="WYLOGUJ">
+                    </div>
+                </form>
+            </div>
+        </section>
+
+{% endblock content %}
