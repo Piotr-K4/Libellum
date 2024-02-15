@@ -1,5 +1,6 @@
 from django.db import models
 import uuid
+from users.models import Profil
 
 # Create your models here.
 class Language(models.Model):
@@ -24,6 +25,7 @@ class Book(models.Model):
     isbn = models.CharField(max_length=13, unique=True, null=True, blank=False)
     pages = models.PositiveIntegerField(default=0)
     language = models.ForeignKey("Language", null=True, blank=False, on_delete=models.SET_NULL)
+    addedByUser = models.ForeignKey(Profil, null=True, blank=False, on_delete=models.SET_NULL)
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     
 

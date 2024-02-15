@@ -34,8 +34,12 @@ def addbook(request):
     if request.method == "POST":
         form = BookForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            book = form.save(commit=False)
+            book.addedByUser = request.user.profil
+            book.save()
             return redirect("index")
+        else:
+            print(form.errors)
     
     context = {
         "basic":form.visible_fields()[:4],

@@ -6,7 +6,8 @@ from .models import Book
 class BookForm(ModelForm):
     class Meta:
         model = Book
-        fields = "__all__"
+        # fields = "__all__"
+        exclude = ["addedByUser",]
         
         labels = {
             "title":"Tytuł",
