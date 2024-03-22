@@ -1,5 +1,9 @@
+from enum import unique
+import re
 from django.db import models
 import uuid
+
+from django.forms import UUIDField
 from users.models import Profil
 
 # Create your models here.
@@ -18,6 +22,7 @@ class Book(models.Model):
     title = models.CharField(max_length=200, null=False, blank=False)
     author = models.CharField(max_length=200, null=True, blank=False)
     category = models.ForeignKey("SubBookCategories", null=True, blank=False,  on_delete=models.SET_NULL)
+    tags = models.ManyToManyField("BookTags")
     description = models.TextField(max_length=2000, null=True, blank=True)
     source = models.CharField(max_length=200, null=True, blank=True)
     publisher = models.CharField(max_length=200, null=True, blank=False)
@@ -48,3 +53,9 @@ class SubBookCategories(models.Model):
     def __str__(self):
         return self.subCategoryName
 
+class BookTags(models.Model):
+    name = models.CharField(max_length=50,null=True,blank=False)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+
+    def __str__(self):
+        return self.name

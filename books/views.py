@@ -42,9 +42,9 @@ def addbook(request):
             print(form.errors)
     
     context = {
-        "basic":form.visible_fields()[:4],
-        "descriptionInfo":form.visible_fields()[4:6],
-        "publisherInfo":form.visible_fields()[6:11]
+        "basic":form.visible_fields()[:5],
+        "descriptionInfo":form.visible_fields()[5:7],
+        "publisherInfo":form.visible_fields()[7:12]
         
         }
     return render(request, "books/addbook.html", context)
