@@ -1,6 +1,8 @@
+import re
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Book
+from django.test import tag
+from .models import Book, BookTags
 from .forms import BookForm
 from django.contrib.auth.decorators import login_required
 
@@ -36,6 +38,18 @@ def addbook(request):
         if form.is_valid():
             book = form.save(commit=False)
             book.addedByUser = request.user.profil
+            tagi = request.POST.get("tags").lower()
+
+            tagi = tagi.split(",")
+
+
+            print(tagi)
+
+            for tag in tagi:
+                if not BookTags.objects.filter(name=tag).exists():
+                    BookTags.objects.create(name=tag)
+
+
             book.save()
             return redirect("index")
         else:
@@ -45,6 +59,5 @@ def addbook(request):
         "basic":form.visible_fields()[:5],
         "descriptionInfo":form.visible_fields()[5:7],
         "publisherInfo":form.visible_fields()[7:12]
-        
         }
     return render(request, "books/addbook.html", context)
