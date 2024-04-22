@@ -42,6 +42,10 @@ def addbook(request):
 
             tagi = tagi.split(",")
 
+            for tag in range(len(tagi)):
+                tagi[tag] = tagi[tag].lstrip()
+                tagi[tag] = tagi[tag].rstrip()
+
 
             print(tagi)
 
