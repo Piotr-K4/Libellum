@@ -16,8 +16,9 @@ class BookFormTest(TestCase):
         self.subcategory = SubBookCategories.objects.create(subCategoryName="wiersze", bookcategory=self.category)
         self.booktag = BookTags.objects.create(name="tag1")
 
-
-    def test_user_exisit(self):
+    
+    def test_tags_split(self):
+        """Test written to check addbook view which remove whitespaces and seperate tags from input field"""
         self.client.login(username="lol", password="zaq1@WSX")
 
         form_data = {
