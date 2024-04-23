@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import UserCreateForm, UserLoginForm, UserEditSettingsForm
 from .models import Profil,User
+from books.models import Book
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 
@@ -65,7 +66,8 @@ def userLogout(request):
 @login_required(login_url="login")
 def userAccount(request):
     profil = Profil.objects.get(user=request.user)
-    context = {"profil":profil}
+    bookaddByUser = Book.objects.filter(addedByUser=request.user.profil).count()
+    context = {"profil":profil, "bookaddByUser":bookaddByUser}
     return render(request, "users/account.html", context)
 
 
