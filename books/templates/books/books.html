@@ -15,32 +15,16 @@
                 <div class="filters__bookcategories">
                     <div class="filters__bookcategories--content">
                         <div class="filters__bookcategories__list">
+                            {% for category in categories  %}
                             <div class="bookcategory">
-                                <div class="bookcategory__label" onclick="toggleGenres(this)"><span class="arrow">&#10148; </span>Beletrystyka</div>
+                                <div class="bookcategory__label" onclick="toggleGenres(this)"><span class="arrow">&#10148; </span>{{category}}</div>
                                 <ul class="bookcategory__genres">
-                                    <li><input type=checkbox><label>Fantasy, since fiction</label></li>
-                                    <li><input type=checkbox><label>kryminał, sensacja, thriller</label></li>
-                                    <li><input type=checkbox><label>literatura młodzieżowa</label></li>
-                                    <li><input type=checkbox><label>literatura piękna</label></li>
+                                    {% for subcategory in category.subbookcategories_set.all %}
+                                    <li><input type="checkbox"><label>{{ subcategory.subCategoryName }}</label></li>
+                                    {% endfor %}
                                 </ul>
                             </div>
-
-                            <div class="bookcategory">
-                                <div class="bookcategory__label" onclick="toggleGenres(this)"><span class="arrow">&#10148; </span>Literatura faktu</div>
-                                <ul class="bookcategory__genres">
-                                    <li><input type=checkbox>publicystyka</li>
-                                    <li><input type=checkbox>literacka, eseje</li>
-                                </ul>
-                            </div>
-
-                            <div class="bookcategory">
-                                <div class="bookcategory__label" onclick="toggleGenres(this)"><span class="arrow">&#10148; </span>Literatura dziecięca</div>
-                                <ul class="bookcategory__genres">
-                                    <li><input type=checkbox>literatura dziecięca</li>
-                                    <li><input type=checkbox>opowiadania dla dzieci</li>
-                                </ul>
-                            </div>
-
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -51,44 +35,13 @@
                         <div class="filters__search">
                             <input type="text" placeholder="Wyszukaj według tagu">
                         </div>
-                        <div class="subtitle">Najpopularniejsze</div>
                         <div class="filters__tags__list">
+                            {% for tag in tags  %}
                             <div class="filters__tags__record">
                                 <input type="checkbox">
-                                <label>historia</label>
+                                <label>{{tag.name}}</label>
                             </div>
-                            <div class="filters__tags__record">
-                                <input type="checkbox">
-                                <label>romans</label>
-                            </div>
-                            <div class="filters__tags__record">
-                                <input type="checkbox">
-                                <label>literatura polska</label>
-                            </div>
-                            <div class="filters__tags__record">
-                                <input type="checkbox">
-                                <label>uczucia</label>
-                            </div>
-                            <div class="filters__tags__record">
-                                <input type="checkbox">
-                                <label>miłość</label>
-                            </div>
-                            <div class="filters__tags__record">
-                                <input type="checkbox">
-                                <label>manga</label>
-                            </div>
-                            <div class="filters__tags__record">
-                                <input type="checkbox">
-                                <label>fantasy</label>
-                            </div>
-                            <div class="filters__tags__record">
-                                <input type="checkbox">
-                                <label>filozofia</label>
-                            </div>
-                            <div class="filters__tags__record">
-                                <input type="checkbox">
-                                <label>II wojna światowa</label>
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -98,11 +51,11 @@
                     <div class="filters__daterelease--content">
                         <div>
                             OD
-                            <input type="number">
+                            <input type="date">
                         </div>
                         <div>
                             DO
-                            <input type="number">
+                            <input type="date">
                         </div>
                     </div>
                 </div>
@@ -113,7 +66,6 @@
                         <div class="filters__search">
                             <input type="text" placeholder="Wyszukaj autora">
                         </div>
-                        <div class="subtitle">Najpopularniejsi</div>
                         <div class="filters__authors__list">
                             <div class="filters__authors__record">
                                 <input type="checkbox">
@@ -150,7 +102,6 @@
                         <div class="filters__search">
                             <input type="text" placeholder="Wyszukaj wydawnictwa">
                         </div>
-                        <div class="subtitle">Najpopularniejsi</div>
                         <div class="filters__publishers__list">
                             <div class="filters__publishers__record">
                                 <input type="checkbox">

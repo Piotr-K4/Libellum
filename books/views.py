@@ -2,7 +2,7 @@ import re
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.test import tag
-from .models import Book, BookTags
+from .models import Book, BookTags, BookCategories, SubBookCategories
 from .forms import BookForm
 from django.contrib.auth.decorators import login_required
 
@@ -17,7 +17,10 @@ def index(request):
 
 def books(request):
     books = Book.objects.all()
-    context = {"books":books}
+    tags = BookTags.objects.all()
+    categories = BookCategories.objects.all()
+    subcategories = SubBookCategories.objects.all()
+    context = {"books":books, "tags":tags, "categories":categories, "subcategories":subcategories}
     
     return render(request,"books/books.html",context)
     
