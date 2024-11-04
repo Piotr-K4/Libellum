@@ -1,135 +1,25 @@
-.login__wrap{
+.loginPage{
+    background-color:#F5F4F0 ;
+    padding: 6rem 0;
+    max-width: 600px;
     width: 100%;
-    padding-top: 3em;
-    padding-bottom: 7em;
-    display: flex;
-    justify-content: center;
+    margin: 0 auto;
+    margin-top: 2rem;
 }
 
-.login__content{
-    width: 40%;
-    padding-bottom: 3em;
-    background-color: #ebebeb;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.login__header hr{
-    border:none;
-    border-top:1px solid #bfc1c2;
-    width: 60%;
-}
-
-.login__header__label{
-    font-size: 2em;
-    margin-bottom: 10px;
-}
-
-.login__header__label--light{
-    font-weight: 400;
-    padding-bottom: 1em;
-    margin: 0;
-}
-
-.login__header__label--light a{
-    text-decoration: none;
-    color:#597194;
-    transition: 0.4s;
-}
-
-.login__header__label--light a:hover{
-    color: #ffda1d;
-}
-
-.login__form{
+.loginPage__header hr{
     width: 70%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    padding-top: 2em;
-    gap: 2em;
-    font-weight: 300;
+    max-width: 300px;
 }
 
-.login__form__field label{
-    display: block;
-    text-align: left;
-}
-
-.login__form__field--inputText{
-    height: 2em;
-    width: 100%;
-    border:none;
-    background-color: transparent;
-    border-bottom: 2px solid grey;
-    outline: none;
-    transition: 0.4s;
-}
-
-.login__form__field--inputText:hover{
-    border-color: #ffda1d;
-}
-
-.login__form__loginbut__wrap{
-    display: flex;
-    justify-content: center;
-}
-
-.login__form__loginbut{
-    padding: 2em 5em;
-    color:#ffd91d;
-    font-weight: 600;
-    background-color: transparent;
-    border: 2px solid #ffd91d;
-    transition: 0.4s;
-}
-
-.login__form__loginbut:hover{
-    color:#fff;
-    background-color:#ffd91d;
-    border-color: #ffd91d;
+.loginPage h1{
+    font-weight: bold;
 }
 
 
-@media (max-width:1385px){
-    .login__content{
-        width: 45%;
-    }
+.loginPage__header a{
+    text-decoration: none;
+    color: #4E4F50;
 }
 
-@media (max-width:1190px){
-    .login__content{
-        width: 50%;
-    }
-}
 
-@media(max-width:990px){
-    .login__content{
-        width: 55%;
-    }
-
-
-}
-@media(max-width:680px){
-    .login__content{
-        width: 80%;
-    }
-
-}
-
-@media(max-width:480px){
-    .login__content{
-        width: 90%;
-    }
-
-    .login__header__label{
-        font-size: 1.6em;
-    }
-
-    .login__header__label--light{
-        font-size: 1em;
-    }
-
-
-}

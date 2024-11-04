@@ -2,41 +2,50 @@
 {% load static %}
 
 {% block content %}
-<div class="usersettings">
-            <div class="usersettings__content">
-                <div class="label usersettings__label">USTAWIENIA</div>
-                <div class="usersettings__userProfile">
-                    <img src="{{profil.profileImage.url}}">
-                    <p class="usersettings__subtitle--value">Avatar</p>
-                </div>
-                <div class="usersettings__userInfo">
-                    <div class="usersettings__userInfo__field">
-                        <p class="usersettings__subtitle">Pseudonim</p>
-                        <p class="usersettings__subtitle--value">{{profil.username}}</p>
-                    </div>
-                    <div class="usersettings__userInfo__field">
-                        <p class="usersettings__subtitle">Imie</p>
-                        <p class="usersettings__subtitle--value">{{profil.user.first_name}}</p>
-                    </div>
-                    <div class="usersettings__userInfo__field">
-                        <p class="usersettings__subtitle">Nazwisko</p>
-                        <p class="usersettings__subtitle--value">{{profil.user.last_name}}</p>
-                    </div>
-                    <div class="usersettings__userInfo__field">
-                        <p class="usersettings__subtitle">Płeć</p>
-                        <p class="usersettings__subtitle--value">{{profil.sexUser}}</p>
-                    </div>
-                    <div class="usersettings__userInfo__field">
-                        <p class="usersettings__subtitle">Data urodzenia</p>
-                        <p class="usersettings__subtitle--value">{{profil.dateBirth}}</p>
-                    </div>
-                    <div class="usersettings__userInfo__field">
-                        <p class="usersettings__subtitle">Opis</p>
-                        <p class="usersettings__subtitle--value">{{profil.description}}</p>
-                    </div>
-                </div>
+<section class="accountUser" style="flex-direction: column;;">
+    <h1 class="label">USTAWIENIA</h1>
+    <hr>
+    <div class="accountUser__profile">
+        <img src="../images/all/terry.jpg">
+    </div>
+    
+    <div class="userSettings">
 
-                <a href="{% url "user-Editsettings" %}" class="usersettings__submit">EDYTUJ KONTO</a>
-            </div>
+        <div class="userSettings__field">
+            <p class="userSettings__field--label">Pseudonim</p>
+            <p class="userSettings__field--value">Terry</p>
         </div>
+
+        <div class="userSettings__field">
+            <p class="userSettings__field--label">Imie</p>
+            <p class="userSettings__field--value">Terry</p>
+        </div>
+
+        <div class="userSettings__field">
+            <p class="userSettings__field--label">Nazwisko</p>
+            <p class="userSettings__field--value">Devis</p>
+        </div>
+
+        <div class="userSettings__field">
+            <p class="userSettings__field--label">Płeć</p>
+            <p class="userSettings__field--value">Mężczyzna</p>
+        </div>
+        
+        <div class="userSettings__field">
+            <p class="userSettings__field--label">Data urodzenia</p>
+            <p class="userSettings__field--value">Devis</p>
+        </div>
+
+        <div class="userSettings__field">
+            <p class="userSettings__field--label">Opis</p>
+            <p class="userSettings__field--value">Lubię placki</p>
+        </div>
+        
+        
+
+    </div>
+
+    <a href="./editsettings.html" class="button-whitebg" style="margin-top: 2rem;">EDTYUJ KONTO</a>
+
+</section>
 {% endblock content %}

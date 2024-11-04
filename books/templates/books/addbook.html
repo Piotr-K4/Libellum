@@ -1,60 +1,77 @@
 {% extends "main.html" %}
 {% block content %} 
-    <main class="pageContainer">
-        <div class="addbook">
-            <div class="addbook__content">
-                <div class="label addbook__label">DODAJ KSIĄŻKE</div>
-                <form method="POST" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <div class="addbook__subtitle">PODSTAWOWE INFORMACJE O KSIĄŻCE</div>
-                    <div class="addbook__basicInfo">
+<section class="addbook">
+    <h1 class="label">DODAJ KSIĄŻKE</h1>
+    <hr>  
 
-                        <div class="addbook__basicInfo--inputFile">
-                            {% for field in basic %}
-                            {% if field.label == 'Image' %}
-                            <div class="addbook_formField">
-                                {{field}}
-                            </div>
-                            {% endif %}
-                            {% endfor %}
-                        </div>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h3 class="label-box">PODSTAWOWE INFORMACJE O KSIĄŻCE</h3>
+        <div class="addbook__topInfo">
+            
+            {% for field in basic  %}
+            {% if field.label == "Image" %}
+            <div class="addbook__bookImage">
+                {{field}}
+                <label for="upload" class="button-whitebg">DODAJ OKŁADKĘ</label>
+                <p>Maksymalny rozmiar pliku 1MB</p>
+            </div>
+            {% endif %}
+            {% endfor %}
 
-                        <div class="addbook__basicInfo--inputText">
-                            {% for field in basic  %}
-                            {% if field.label == 'Image' %}
-                            
-                            {% else %}
-                                <div class="addbook_formField">
-                                    <p>{{field.label}}</p>
-                                    {{field}}
-                                </div>
-                            {% endif %}
-                            {% endfor %}
-                        </div>
-                    </div>
+            
+            <div class="addbook__basicInfo">
+                
+                {% for field in basic  %}
+                {% if field.label != "Image" %}
+                <div class="form__field">
+                    <label for="booklabel">{{field.label}}</label>
+                    {{field}}
+                </div>
+                {% endif %}
+                {% endfor %}
 
-                    <div class="addbook__subtitle">OPIS KSIĄŻKI</div>
-                    <div class="addbook__desciptionInfo">
-                        {% for field in descriptionInfo %}
-                        <div class="addbook_formField">
-                            <p>{{field.label}}</p>
-                            {{field}}
-                        </div>
-                        {% endfor %}
-                    </div>
-                    
-                    <div class="addbook__subtitle">INFORMACJA O WYDANIU</div>
-                    <div class="addbook__publisherInfo">
-                        {% for field in publisherInfo %}
-                        <div class="addbook_formField">          
-                            <p>{{field.label}}</p>
-                            {{field}}
-                        </div>
-                        {% endfor %}
-                    </div>
-                    <input type="submit" value="DODAJ KSIĄŻKE" class="addbook__submit">
-                </form>
             </div>
         </div>
-    </main>
+        
+        <div class="addbook__bottomInfo">
+
+            <div class="addbook__bookDescription">
+                <h3 class="label-box">OPIS KSIĄŻKI</h3>
+                
+                {% for field in descriptionInfo  %}
+                <div class="form__field">
+                    <label for="{{field.label}}">{{field.label}}</label>
+                    {{field}}
+                </div>
+                {% endfor %}
+
+            </div>
+            
+            <div class="addbook__detailInfo">
+                <h3 class="label-box">INFORMACJA O WYDANIU</h3>
+
+                {% for field in publisherInfo  %}
+                <div class="form__field">
+                    <label for="{{field.label}}">{{field.label}}</label>
+                    {{field}}
+                </div>
+                {% endfor %}
+
+            </div>
+
+        </div>
+        
+        <input type="submit" class="button-whitebg" style="text-align: center;" name="nick" id="" value="DODAJ KSIĄŻKE">
+
+        </div>
+        
+        
+        
+        
+        
+
+    </form>
+
+</section>
 {% endblock  %}

@@ -29,7 +29,7 @@ class BookForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         
-        self.fields['image'].widget.attrs['class'] = "addbook__basicInfo__inputFile--button"
+        self.fields['image'].widget.attrs['style'] = "display: none;"
         self.fields['image'].widget.attrs['id'] = "upload"
         self.fields['date_realease'].widget = forms.DateInput(attrs={'type': 'date'})
         self.fields['title'].widget.attrs['placeholder'] = "Tytuł"

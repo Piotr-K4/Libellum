@@ -1,39 +1,53 @@
 {% extends "main.html" %}
 {% block content %}
-        <div class="bookPage">
-            <div class="bookPage__content">
-                <div class="bookPage__picture">
-                    <img src="{{book.image.url}}">
-                </div>
-                
-                <div class="bookPage__Info">
-                    <div class="bookPage__Info__booktitle">{{book.title}}</div>
-                    <div class="bookPage__Info--wrap">
-                        <div class="bookPage__Info__detailInfo">
-                            <h2 class="bookPage__Info__detailInfo--author">{{book.author}}</h2>
-                            <p>Wydawnictwo: <span>{{book.publisher}}</span></p>
-                            <span>{{book.category}}</span>
-                            <p>{{book.pages}} str</p>
-                        </div>
-                        <div class="bookPage__Info__ownlibrary">
-                            <div class="label bookPage__Info__ownlibrary--label">DODAJ DO BIBLITECZEKI</div>
-                            <div class="bookPage__Info__ownlibrary__todo">
-                                <div class="bookPage__Info__ownlibrary__todo--element">
-                                    <p>PRZECZYTANE</p>
-                                    <iconify-icon icon="tdesign:chat-checked"></iconify-icon>
-                                </div>
-                                <div class="bookPage__Info__ownlibrary__todo--element">
-                                    <p>CZYTAM</p>
-                                    <iconify-icon icon="pajamas:book"></iconify-icon>
-                                </div>
-                                <div class="bookPage__Info__ownlibrary__todo--element">
-                                    <p>CHCE PRZECZYTAĆ</p>
-                                    <iconify-icon icon="streamline:travel-wayfinder-lifebuoy-water-life-ring-wheely-lifebelt-kisbee"></iconify-icon>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+<div class="bookPage">
+    <img class="book__img bookPage__picture" src="{{book.image.url}}">
+
+    <div class="bookPage__info">
+        <h1 class="book__title bookPage__title">{{book.title}}</h1>
+
+        <div class="bookPage__info-secondary">
+
+            <div class="bookPage__info-detail">
+
+                <h2 class="book__author">{{book.author}}</h2>
+                <p>Wydawnictwo: <span>{{book.publisher}}</span></p>
+                <span>{{book.category}}</span>
+                <p>{{book.pages}} str</p>
+
             </div>
+
+            <div class="bookPage__library">
+
+                <h3 class="label" style="margin-top: 0;">DODAJ DO BIBLIOTECZKI</h3>
+                <div class="bookPage__library-btns">
+
+                    <div class="bookPage__library-btn">
+                        <iconify-icon icon="tdesign:chat-checked"></iconify-icon>
+                        <p style="margin: 0;">Przeczytane</p>
+
+                    </div>
+
+                    <div class="bookPage__library-btn">
+                        <iconify-icon icon="pajamas:book"></iconify-icon>
+                        <p style="margin: 0;">Czytam</p>
+
+                    </div>
+
+                    <div class="bookPage__library-btn">
+                        <iconify-icon  icon="streamline:travel-wayfinder-lifebuoy-water-life-ring-wheely-lifebelt-kisbee"></iconify-icon>
+                        <p style="margin: 0;">Chcę przeczytać</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
+    </div>
+    
+</div>
+
 {% endblock content %}

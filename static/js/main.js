@@ -1,106 +1,122 @@
-function showAccount(){
-    let account = document.getElementsByClassName("header__user__account__dropdown")[0]
-
-    if(window.getComputedStyle(account).display === 'block'){
-        account.style.display = 'none'
-    } else{
-        account.style.display = 'block'
-    }
+function toggleMenu(){
+    let mobileMenu = document.querySelector(".mobile-menu")
+    let searchBox = document.querySelector(".header__menu-button--search")
+    mobileMenu.classList.toggle("mobile-menu--is-active")
+    searchBox.toggleAttribute("disabled")
 }
 
-
-
-function showMenu(){
-    let menu = document.getElementsByClassName("header__navbarMobile__dropdown")[0]
-    let pageContainer = document.querySelector(".pageContainer")
-    let header = document.querySelector(".header__content")
-    let body = document.body
-
-    if(window.getComputedStyle(menu).display === 'block'){
-        menu.style.display = 'none'
-        pageContainer.style.display = ''
-        header.style.position = 'fixed'
-        body.style.paddingTop = "80px";
-    } else{
-        menu.style.display = 'block'
-        pageContainer.style.display = 'none'
-        header.style.position = 'static'
-        body.style.paddingTop = "0px";
-    }
+function toggleSearchInput(){
+    let searchBox = document.querySelector(".wrapper-search--mobile")
+    searchBox.classList.toggle("wrapper-search--mobile-is-active")
 }
 
-function showKatalog(){
-    let katalog = document.getElementById("katalogSublinks") 
-    let arrow_close = document.getElementsByClassName("arrow_close")[0]
-    let arrow_open = document.getElementsByClassName("arrow_open")[0]
-    
-    if(window.getComputedStyle(katalog).display === 'none'){
-        katalog.style.display = 'block'
-        arrow_open.style.display = 'inline'
-        arrow_close.style.display = 'none'
-    } else{
-        katalog.style.display = 'none'
-        arrow_open.style.display = 'none'
-        arrow_close.style.display = 'inline'
-    }
-}
+// function toggleMenuLinks(option){
+//     option.firstElementChild.classList.toggle("mobile-menu__option--button-is-active")
+//     option.parentElement.nextElementSibling.classList.toggle("mobile-menu__links-is-active")
+// }
 
-function showSpolecznosc(){
-    let spolecznosc = document.getElementById("spolecznoscSublinks") 
-    let arrow_close = document.getElementsByClassName("arrow_close")[1]
-    let arrow_open = document.getElementsByClassName("arrow_open")[1]
-    
-    if(window.getComputedStyle(spolecznosc).display === 'none'){
-        spolecznosc.style.display = 'block'
-        arrow_open.style.display = 'inline'
-        arrow_close.style.display = 'none'
-    } else{
-        spolecznosc.style.display = 'none'
-        arrow_open.style.display = 'none'
-        arrow_close.style.display = 'inline'
-    }
+function toggleMenuLinks(option) {
+    const arrowIcon = option.firstElementChild;
+    const menuLinks = option.parentElement.nextElementSibling;
 
-}
+    arrowIcon.classList.toggle("mobile-menu__option--button-is-active");
 
-function toggleGenres(label) {
-    const category = label.parentElement;
-    const genresList = category.querySelector('ul.bookcategory__genres');
-    const arrow = category.querySelector('.arrow');
-
-    if (genresList.style.display === 'none' || genresList.style.display === '') {
-        genresList.style.display = 'block';
-        arrow.style.color = "red";
-        arrow.style.transform = "rotate(90deg)";
+    if (arrowIcon.classList.contains("mobile-menu__option--button-is-active")) {
+        arrowIcon.style.transition = "transform 0.2s ease-in-out";
+        arrowIcon.style.transform = "rotate(90deg)";
+        setTimeout(() => {
+            menuLinks.classList.toggle("mobile-menu__links-is-active");
+        }, 0);
     } else {
-        genresList.style.display = 'none';
-        arrow.style.transform = "rotate(0deg)";
-        arrow.style.color = "#ffda1d";
+        arrowIcon.style.transition = "transform 0.2s ease-in-out";
+        arrowIcon.style.transform = "rotate(0deg)";
+        setTimeout(() => {
+            menuLinks.classList.toggle("mobile-menu__links-is-active");
+        }, 0);
     }
 }
 
-function showFilters(){
-    filters__button = document.querySelector(".filters__mobile")
-    filters__exit = document.querySelector(".filters__mobile--exit")
-    filters = document.querySelector(".filters__content")
 
-    if (filters.style.display === 'none' || filters.style.display === ''){
-        filters.style.display = 'block';
-        filters__exit.style.display = 'block';
-        filters.style.position = 'absolute';
-        filters.style.top = '0';
-    }
+function toggleFilterItems(option){
+    const arrowIcon = option.firstElementChild
+    const filterItems = option.nextElementSibling
 
-}
+    console.log(option)
 
-function hideFilters(){
-    filters__button = document.querySelector(".filters__mobile")
-    filters__exit = document.querySelector(".filters__mobile--exit")
-    filters = document.querySelector(".filters__content")
-
-    if (filters.style.display === 'block'){
-        filters.style.display = '';
-        filters.style.position = '';
-        filters.style.top = '';
-        filters__exit.style.display = 'none';
+    filterItems.classList.toggle("filters__items--is-active");
+    option.classList.toggle("filters__option-button--is-active")
+    
+    if(filterItems.classList.contains("filters__items--is-active")){
+        arrowIcon.style.transition = "transform 0.1s ease-in-out";
+        arrowIcon.style.transform = "rotate(90deg)";
+    } else {
+        arrowIcon.style.transition = "transform 0.1s ease-in-out";
+        arrowIcon.style.transform = "rotate(0deg)";
     }
 }
+
+
+function toggleMobileFilters(){
+    const mobileFilters = document.querySelector(".mobile-filters")
+    mobileFilters.classList.toggle("mobile-filters--is-active")
+
+
+    if(document.body.style.overflowY === ""){
+        document.body.style.overflowY = "hidden" 
+    } else {
+        document.body.style.overflowY = "" 
+    }
+}
+
+
+function toggleMobileUser(option){
+    const mobileUser = document.querySelector(".userOptionsMobile");
+    const desktopUser = document.querySelector(".userOptions");
+    const arrowIcon = option.lastChild
+
+    if(option.classList.contains("header__menu-button--mobile")){
+        mobileUser.classList.toggle("userOptionsMobile--active")
+        if(mobileUser.classList.contains("userOptionsMobile--active")){
+            arrowIcon.style.transition = "transform 0.1s ease-in-out";
+            arrowIcon.style.transform = "rotate(90deg)";
+        } else {
+            arrowIcon.style.transition = "transform 0.1s ease-in-out";
+            arrowIcon.style.transform = "rotate(0deg)";
+        }
+    } else{
+        desktopUser.classList.toggle("userOptions--active")
+        if(desktopUser.classList.contains("userOptions--active")){
+            arrowIcon.style.transition = "transform 0.1s ease-in-out";
+            arrowIcon.style.transform = "rotate(90deg)";
+        } else {
+            arrowIcon.style.transition = "transform 0.1s ease-in-out";
+            arrowIcon.style.transform = "rotate(0deg)";
+        }
+    }
+    
+}
+
+
+window.addEventListener("resize", () => {
+    if ( document.querySelector(".mobile-menu").className === "mobile-menu mobile-menu--is-active"){
+        if(window.innerWidth >= 992){
+            toggleMenu();
+        }
+    }
+
+    if ( document.querySelector(".wrapper-search--mobile").className === "wrapper-search--mobile wrapper-search--mobile-is-active"){
+        if(window.innerWidth >= 992){
+            toggleSearchInput();
+        }
+    }
+}
+)
+
+
+
+
+
+
+
+
+

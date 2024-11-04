@@ -1,0 +1,203 @@
+@media (min-width:767px){
+    .promo-banner__label{
+        font-size: 3.3rem;
+    }
+
+    .promo-banner__text{
+        font-size: 1.3rem;
+    }
+    
+    .category{
+        flex-direction: row;
+    }
+
+    .footer__header{
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .wrapper-catalog__filters-button{
+        display: none;
+    }
+    
+    .catalog__filters{
+        display: block;
+        min-width: 40%;
+    }
+    
+    .catalog__filters-section{
+        border-bottom: 1px solid #3d3d3d;
+    }
+    
+    .catalog__main{
+        flex-direction: row;
+    }
+
+
+
+    .generalstats__stats{
+        flex-direction: row;
+    }
+    
+    
+    .addbook__topInfo{
+        flex-direction: row;
+    }
+
+ }
+
+@media (min-width:992px){
+    .header__menu-button--menu,
+    .header__menu-button--search{
+        display:none;
+    }
+    .header__menu-button--user,
+    .header__menu-button--login,
+    .navbar{
+        display: block;
+    }
+    /* .page-container{
+        padding: 0 3rem;
+    } */
+    .wrapper-search--desktop{
+        display: block;
+    }
+    .wrapper-search--mobile{
+        display: none;
+    }
+    
+    .promo-banner{
+        flex-direction: row;
+        padding: 2rem;
+    }
+    .books-grid--hits{
+        grid-template-columns:repeat(3,minmax(17rem,17rem));
+    }
+    
+    .catalog__main{
+        padding:2rem;
+    }
+
+    .bookPage{
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    .bookPage__info{
+        align-items: stretch;
+    }
+
+    .bookPage__info-secondary{
+        flex-direction: row;
+        column-gap: 5rem;
+    }
+
+    .bookPage__title{
+        background-color: #3a4c5a;
+        color: white;
+        padding: 1rem;
+        max-width: 100%;
+    }
+    
+    .bookPage__library-btn{
+        font-size: 0.9rem;
+        width: 100px;
+    }
+
+    .generalstats__stats{
+        column-gap: 5.5rem;
+    }
+
+    .generalstats .label{
+        font-size: 2rem;
+    }
+
+    .stats__logo{
+        font-size: 4.5rem;
+    }
+
+    .counter__numbers{
+        font-size: 2.5rem;
+    }
+
+    .counter__text{
+        font-size: 1rem;
+    }
+
+    .userranking__categories{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        gap: 1rem;
+        box-sizing: border-box;
+        justify-content: space-between;
+    }
+
+    .userranking__category{
+        width: 48%;
+    }
+
+    .otherStats__list,
+    .accountUser__mainStats{
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .accountUser__library .bookPage__library-btn{
+        font-size: 1.2rem;
+    }
+    
+    .addbook__bottomInfo{
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+    
+    .addbook__topInfo{
+        padding-bottom: 4rem;
+    }
+    
+    .addbook__bottomInfo *{
+        flex-grow: 1;
+    }
+    
+    .header__menu-button--desktop{
+        display: block;
+   } 
+
+    .userOptions{
+        display: flex;
+   }
+
+    
+}
+
+
+@media (min-width:1200px){
+    .section-categories__links{
+        flex-direction: row;
+    }
+    
+    .accountUser{
+        flex-direction: row;
+    }
+    
+    .accountUser__label{
+        text-align: left;
+    }
+    
+    
+    .bookPage__library-btns{
+        flex-direction: row;
+        gap: 1rem;
+    }
+    
+    .addbook{
+        padding: 0 6rem;
+    }
+    
+    .addbook__bookImage{
+        height: 400px;
+    }
+    
+}

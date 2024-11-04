@@ -2,93 +2,103 @@
 {% load static %}
 
 {% block content %}
-        <div class="accountPage">
-            <div class="accountPage__content">
-                <div class="accountPage__banner">
-                    <div class="accountPage__banner__userProfile--wrap">
-                        <div class="accountPage__banner__userProfile">
-                            <img src="{{profil.profileImage.url}}">
-                        </div>
-                    </div>
-                    <div class="accountPage__banner__userInfo">
-                        <div class="accountPage__banner__userInfo--label">CZEŚĆ <strong>{{user.username}}</strong></div>
-                        <div class="accountPage__banner__userInfo--statsWrap">
-                            <div class="accountPage__banner__userInfo--stats">
-                                <div class="accountPage__banner__userInfo--statsCounter">0</div>
-                                <div class="accountPage__banner__userInfo--statsCategory">PRZECZYTANYCH<br>KSIĄŻEK</div>
-                            </div>
-                            <div class="accountPage__banner__userInfo--stats">
-                                <div class="accountPage__banner__userInfo--statsCounter">0</div>
-                                <div class="accountPage__banner__userInfo--statsCategory">PRZECZYTANYCH<br>KSIĄŻEK</div>
-                            </div>
-                            <div class="accountPage__banner__userInfo--stats">
-                                <div class="accountPage__banner__userInfo--statsCounter">0</div>
-                                <div class="accountPage__banner__userInfo--statsCategory">PRZECZYTANYCH<br>KSIĄŻEK</div>
-                            </div>
-                            <div class="accountPage__banner__userInfo--stats">
-                                <div class="accountPage__banner__userInfo--statsCounter">0</div>
-                                <div class="accountPage__banner__userInfo--statsCategory">PRZECZYTANYCH<br>KSIĄŻEK</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="accountPage__library">
-                    <div class="label accountPage__library--label">BIBLIOTECZKA</div>
-                    <div class="accountPage__library__content">
-                        <div class="accountPage__library--category">
-                            <h3>PRZECZYTANE</h3>
-                            <hr>
-                            <p>1 KSIĄŻKA</p>
-                            <iconify-icon icon="tdesign:chat-checked"></iconify-icon>
-                        </div>
-                        <div class="accountPage__library--category">
-                            <h3>TERAZ CZYTAM</h3>
-                            <hr>
-                            <p>1 KSIĄŻKA</p>
-                            <iconify-icon icon="pajamas:book"></iconify-icon>
-                        </div>
-                        <div class="accountPage__library--category">
-                            <h3>CHCE PRZECZYTAĆ</h3>
-                            <hr>
-                            <p>1 KSIĄŻKA</p>
-                            <iconify-icon icon="streamline:travel-wayfinder-lifebuoy-water-life-ring-wheely-lifebelt-kisbee"></iconify-icon>
-                        </div>
-                    </div>
-                </div>
-                <div class="accountPage__stats">
-                    <div class="label accountPage__stats--label">MOJE STATYSTYKI</div>
-                    <div class="accountPage__stats__content">
-                        <div class="accountPage__stats__category">
-                            <iconify-icon icon="bi:book" class="userranking__items-content-label-icon"></iconify-icon>
-                            <p>W sumie przeczytano</p>
-                            <hr>
-                            <h1>1</h1>
-                            KSIĄŻEK
-                        </div>
-                        <div class="accountPage__stats__category">
-                            <iconify-icon icon="mdi:draw-pen" class="userranking__items-content-label-icon" rotate="90deg"></iconify-icon>
-                            <p>W sumie wydanych</p>
-                            <hr>
-                            <h1>1</h1>
-                            OPINI 
-                        </div>
-                        <div class="accountPage__stats__category">
-                            <iconify-icon icon="tabler:quote" class="userranking__items-content-label-icon"></iconify-icon>
-                            <p>W sumie dodanych</p>
-                            <hr>
+<section class="accountUser">
+    <div class="accountUser__profile">
+        <img src="{{profil.profileImage.url}}">
+    </div>
 
-                            <h1>1</h1>
-                            CYTATÓW
-                        </div>
-                        <div class="accountPage__stats__category">
-                            <iconify-icon icon="bi:book" class="userranking__items-content-label-icon"></iconify-icon>
-                            <p>W sumie dodanych</p>
-                            <hr>
-                            <h1>{{bookaddByUser}}</h1>
-                            KSIĄŻEK
-                        </div>
-                    </div>
-                </div>
+    <div class="accountUser__info">
+        <div class="accountUser__label">CZEŚĆ <strong>{{user.username}}</strong></div>
+        <div class="accountUser__mainStats">
+            <div class="accountUser__singleStats">
+                <div class="singleStats__counter">0</div>
+                <div class="singleStats__category">PRZECZYTANYCH KSIĄŻEK</div>
             </div>
+
+            <div class="accountUser__singleStats">
+                <div class="singleStats__counter">0</div>
+                <div class="singleStats__category">KSIĄŻEK W BIBLIOTECE</div>
+            </div>
+
+            <div class="accountUser__singleStats">
+                <div class="singleStats__counter">0</div>
+                <div class="singleStats__category">OPINI</div>
+            </div>
+
+            <div class="accountUser__singleStats">
+                <div class="singleStats__counter">0</div>
+                <div class="singleStats__category">POLUBIEŃ OPINII</div>
+            </div>
+
         </div>
+    </div>
+</section>
+
+<section class="accountUser__library">
+    <h1 class="label">BIBLIOTECZKA</h1>
+
+    <div class="bookPage__library">
+        <div class="bookPage__library-btns">
+
+            <div class="bookPage__library-btn">
+                <p style="margin: 0;">PRZECZYTANE</p>
+                <iconify-icon icon="tdesign:chat-checked"></iconify-icon>
+
+            </div>
+
+            <div class="bookPage__library-btn">
+                <p style="margin: 0;">CZYTAM</p>
+                <iconify-icon icon="pajamas:book"></iconify-icon>
+
+            </div>
+
+            <div class="bookPage__library-btn">
+                <p style="margin: 0;">CHCE PRZECZYTAĆ</p>
+                <iconify-icon  icon="streamline:travel-wayfinder-lifebuoy-water-life-ring-wheely-lifebelt-kisbee"></iconify-icon>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section class="accountUser__otherStats">
+    <h1 class="label-box">MOJE STATYSTYKI</h1>
+    <div class="otherStats__list">
+
+        <div class="otherstats__category">
+            <iconify-icon icon="bi:book"></iconify-icon>
+            <p>W sumie przeczytano</p>
+            <hr>
+            <h1>1000</h1>
+            książek
+        </div>
+        
+        <div class="otherstats__category">
+            <iconify-icon icon="mdi:draw-pen" rotate="90deg"></iconify-icon>
+            <p>a w sumie wydanych</p>
+            <hr>
+            <h1>1000</h1>
+            opini
+        </div>
+        
+        <div class="otherstats__category">
+            <iconify-icon icon="tabler:quote" ></iconify-icon>
+            <p>a w sumie dodanych</p>
+            <hr>
+            <h1>1000</h1>
+            książek
+        </div>
+        
+        <div class="otherstats__category">
+            <iconify-icon icon="bi:book"></iconify-icon>
+            <p>a w sumie dodanych</p>
+            <hr>
+            <h1>{{bookaddByUser}}</h1>
+            książek
+        </div>
+        
+    </div>
+
+</section>
 {% endblock %}

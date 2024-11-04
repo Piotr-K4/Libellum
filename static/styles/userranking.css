@@ -1,38 +1,4 @@
-.userranking__body{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap:1em;
-    box-sizing: border-box;
-}
-
-
-.userranking{
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1em;
-}
-
-.userranking .label{
-    color: #fff;
-    background-color: #ffda1d;
-    padding: 0.4em 1em;
-    box-sizing: border-box;
-}
-
 .generalstats{
-    width: 100%;
-    height:230px;
-    display: flex;
-    justify-content: center;
-}
-
-
-.generalstats__content{
-    width: 70%;
     height: 100%;
     background-image: url(../images/all/bg_community.png);
     background-size: cover;
@@ -40,167 +6,102 @@
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
-}
-
-.generalstats__content .label{
-    box-sizing: border-box;
-    width: 100%;
-    padding: 1em 1em 0em 1em;
-    border:none;
-    color: #fff;
+    align-items: center;
+    padding: 1rem;
 }
 
 .generalstats__stats{
-    width: 100%;
-    height: 100%;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: 0 2em;
-    box-sizing: border-box;
+    flex-direction: column;
+    color: white;
+    gap: 1rem;
+    padding: 1rem 0;
 }
 
 .stats{
-    width: 100%;
     display: flex;
-    justify-content: center;
+    flex-grow: 1;
+    flex-basis: 0;
     align-items: center;
-    font-weight: 800;
-}
-
-.stats__logo{
-    color: #fff;
-    font-size: 3.5em;
-    margin-right:0.3em;
-}
-
-.stats__counter{
-    color: #ffda1d;
-    font-size: 2.5em;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
+    gap: 0.5rem;
 }
 
 .stats__counter hr{
-    width: 2em;
-    border: 2px solid #4f4e4e;
-    margin: 0.2em 0;
+    margin: 0;
+    border: 2px solid #970C10;
 }
 
-.stats__counter__numbers{
-    padding: 0;
+.stats__logo{
+    font-size: 3rem;
 }
 
-.stats__counter__text{
-    font-size: 0.6em;
-    color: #fff;
-    font-weight: 400;
+.counter__numbers{
+    color: #3a4c5a;
+    font-weight: 900;
+    font-size: 1.5rem;
     text-wrap: nowrap;
 }
 
+.counter__text{
+    text-wrap: nowrap;
+}
 
-.userranking__items{
-    width: 100%;
+.userranking__label{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    box-sizing: border-box;
-    margin:0 -0.5em;
+    justify-content: flex-start;
+    color: #597194;
+    gap: 1em;
+    text-align: left;
+    font-size: 1.2rem;
+    align-items: center;
 }
 
-.userranking__items-category{
-    width: 50%;
-    height: 600px;
-    box-sizing: border-box;
-    padding:0 0.5em;
-    margin-bottom: 1em;
+.userranking__label iconify-icon{
+    font-size: 2rem;
 }
 
-.userranking__items-content{
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
+.userranking__stats{
+    background-color: #f3f5fb;
+    padding: 0 0.1rem;;
+    padding-bottom: 2rem;
+}
+
+.userranking__topUsers{
     display: flex;
-    flex-direction: column;
+    justify-content: space-between; 
 }
 
-.userranking__items-content-label{
-   display: flex; 
-   flex-direction: row;
-   justify-content: flex-start;
-   color:#597194;
-   gap: 1em;
-   text-align: left;
-   font-size: 0.9em;
-   align-items: center;
-}
-
-.userranking__items-content-label-icon{
-    font-size: 2em;
-}
-
-.userranking__items-content-stats-wrap{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    background-color:  #f3f5fb;
-}
-
-.userranking__items-content-statsTop{
-    width: 100%;
-    height:fit-content;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-
-}
-
-.userranking__items-content-statsTop-user{
+.topUsers__user{
     width: 33%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 50px;
+    padding-top: 3.5rem;
     box-sizing: border-box;
 }
 
-.userranking__items-content-statsTop-userProfile,
-.userranking__items-content-statsTop-userProfile--winner{
-    width: 90px;
-    height: 90px;
+.topUsers__userProfile{
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
     overflow: hidden;
-    box-sizing: border-box;
-    position: relative;
-    box-shadow: 1px 1px 10px rgba(0,0,0,0.4);
 }
 
-.userranking__items-content-statsTop-userProfile img,
-.userranking__items-content-statsTop-userProfile--winner img{
-    transition: 0.4s;
+.topUsers__userProfile--winner{
+    width: 100px;
+    height: 100px;
+    border: 5px solid #ffda1d;
+    margin-top: -40px;
+}
+
+.topUsers__userProfile img{
     width: 100%;
 }
 
-
-.userranking__items-content-statsTop-userProfile--winner{
-    border: 5px solid #ffda1d;
-    width: 120px;
-    height: 120px;
-    margin-top: -35px;
-} 
-
-.userranking__items-content-statsTop-userProfile img:hover,
-.userranking__items-content-statsTop-userProfile--winner img:hover{
-    transform: scale(1.1);
-}
-
-.userranking__items-content-statsTop-userPosition,
-.userranking__items-content-statsTop-userPosition--winner{
+.topUsers__userPosition{
     width: 30px;
     height: 30px;
     background: #bfc1c2;
@@ -208,28 +109,12 @@
     font-size: 1.2em;
     text-align: center;
     margin-top: -10px;
-    z-index: 10;
+    z-index: 3;
     position: relative;
 }
 
-.userranking__items-content-statsTop-userPosition h3,
-.userranking__items-content-statsTop-userPosition--winner h3{
-    margin: 0;
-}
-
-
-.userranking__items-content-statsTop-userPosition--winner{
-    width: 44px;
-    height: 44px;
-    margin-top: -15px;
-    background: linear-gradient(0deg, rgba(184,158,25,1) 0%, rgba(231,197,27,1) 33%, rgba(255,218,29,1) 51%);
-    font-size: 2em;
-}
-
-.userranking__items-content-statsTop-userPosition::before,
-.userranking__items-content-statsTop-userPosition::after,
-.userranking__items-content-statsTop-userPosition--winner::before,
-.userranking__items-content-statsTop-userPosition--winner::after{
+.topUsers__userPosition::before,
+.topUsers__userPosition::after{
     content: "";
     width: 15px;
     height: 30px;
@@ -242,190 +127,76 @@
     z-index: -1;
 }
 
-
-.userranking__items-content-statsTop-userPosition--winner::before,
-.userranking__items-content-statsTop-userPosition--winner::after{
-    width: 22px; 
-    height: 40px;
-    margin-top:15px;
-    background: linear-gradient(0deg, rgba(184,158,25,1) 0%, rgba(231,197,27,1) 33%, rgba(255,218,29,1) 51%);
-}
-
-.userranking__items-content-statsTop-userPosition::after,
-.userranking__items-content-statsTop-userPosition--winner::after{
+.topUsers__userPosition::after{
     transform: skewY(50deg);
     right: 0;
 }
 
-.userranking__items-content-statsTop-userPosition h3{
-    margin: 0;
+.topUsers__userPosition--winner{
+    width: 44px;
+    height: 44px;
+    margin-top: -15px;
+    background: linear-gradient(0deg, rgba(184, 158, 25, 1) 0%, rgba(231, 197, 27, 1) 33%, rgba(255, 218, 29, 1) 51%);
+    font-size: 2em;
 }
 
-.userranking__items-content-statsTop-userInfo--name{
-    margin: 0;
-    margin-top: 30px;
-    color:#ffda1d; 
+.topUsers__userPosition--winner::before,
+.topUsers__userPosition--winner::after{
+    width: 22px;
+    height: 40px;
+    margin-top: 15px;
+    background: linear-gradient(0deg, rgba(184, 158, 25, 1) 0%, rgba(231, 197, 27, 1) 33%, rgba(255, 218, 29, 1) 51%);
 }
 
-.userranking__items-content-statsTop-userInfo--score{
-    margin: 0;
-    font-weight: 300;
+
+
+.topUsers__userName{
+    margin-top:30px;
 }
 
-.userranking__items-content-statsOther{
-    width: 100%;
-    height: 100%;
+.userranking__otherUsers{
     display: flex;
     flex-direction: column;
-    justify-items: center;
-    padding: 2em 5em ;
     box-sizing: border-box;
+    padding: 2rem 3rem;
 }
 
-.userranking__items-content-statsOther-user{
-    width: 100%;
+.otherUsers__user{
     display: flex;
     flex-direction: row;
     padding-top: 5px;
     font-weight: 300;
-    color:#597194;
+    color: #597194;
     border-bottom: 1px solid #597194;
     align-items: center;
-    box-sizing: border-box;
     transition: 0.2s;
 }
 
-
-.userranking__items-content-statsOther-user:hover{
-    background-color: #eaecf2;
-}
-
-.userranking__items-content-statsOther-userPosition{
+.otherUsers__userPosition{
     margin-right: 10px;
 }
 
-.userranking__items-content-statsOther-userProfile{
+.otherUsers__userProfile{
     width: 25px;
     min-width: 25px;
     min-height: 25px;
     margin-right: 5px;
-}
-
-.userranking__items-content-statsOther-userProfile img{
     border-radius: 50%;
+    overflow: hidden;
+}
+
+.otherUsers__userProfile img{
     width: 100%;
 }
 
-.userranking__items-content-statsOther-userName{
-    width: 100%;
+.otherUsers__user:hover{
+    background-color:  #d0d4e2;
+}
+
+.otherUsers__userName{
     text-align: left;
+    flex-grow: 3;
 }
-
-@media (max-width:1385px){
-    .userranking{
-        width: 80%;
-    }
-
-    .generalstats__content{
-        width: 80%;
-    }
-}
-
-@media (max-width:1190px){
-    .userranking{
-        width: 90%;
-    }
-
-    .generalstats__content{
-        width: 90%;
-    }
-
-    .stats__logo{
-        font-size: 3em;
-    }
-
-    .stats__counter{
-        font-size: 2em;
-    }
-
-    .userranking__items-content-statsTop-userProfile{
-        width: 70px;
-        height: 70px;
-    }
-
-    .userranking__items-content-statsTop-userProfile--winner{
-        width: 100px;
-        height: 100px;
-    }
-}
-
-@media(max-width:990px){
-    .userranking__items{
-        flex-direction: column;
-        align-items: center;
-    }    
-
-    .userranking__items-category{
-        width: 100%;
-    }
-
-    .stats__logo{
-        font-size: 2.5em;
-    }
-
-    .stats__counter{
-        font-size: 1.5em;
-    }
-
-    .stats__counter__text
-
-}
-
-@media(max-width:680px){
-    .generalstats__content .label{
-        font-size: 1em;
-        text-align: center;
-    }
-
-
-    .userranking .label{
-        font-size: 1em;
-    }
-
-    .generalstats__stats{
-        flex-direction: column;
-        justify-content: center;
-        gap: 1em;
-    }
-
-    .stats__logo{
-        width: 10%;
-        font-size: 1.5em;
-    }
-
-    .stats__counter{
-        font-size: 1em;
-        width: 60%;
-    }
-
-    .stats__counter__text{
-        font-size: 0.8em;
-    }
-
-    .userranking__items-content-statsOther{
-        padding: 2em 3em;
-    }
-
-
-}
-
-
-
-
-
-
-
-
 
 
 

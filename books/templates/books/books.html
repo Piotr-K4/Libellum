@@ -3,147 +3,421 @@
 
 {% block content %}
 {% load static %}
-        <section class="catalog__banner">
-            <img src="{% static "/images/all/library.webp" %}">
-        </section>
-        <section class="catalog__content">
-            <button class="filters__mobile" onclick="showFilters();">FILTRY</button>
-            <div class="filters__content">
-                <div class="label">FILTRY</div>
-                <!-- KATEGORIE -->
-                <div class="subtitle">KSIĄŻKI Z KATEGORII</div>
-                <div class="filters__bookcategories">
-                    <div class="filters__bookcategories--content">
-                        <div class="filters__bookcategories__list">
-                            {% for category in categories  %}
-                            <div class="bookcategory">
-                                <div class="bookcategory__label" onclick="toggleGenres(this)"><span class="arrow">&#10148; </span>{{category}}</div>
-                                <ul class="bookcategory__genres">
-                                    {% for subcategory in category.subbookcategories_set.all %}
-                                    <li><input type="checkbox"><label>{{ subcategory.subCategoryName }}</label></li>
-                                    {% endfor %}
-                                </ul>
-                            </div>
-                            {% endfor %}
-                        </div>
-                    </div>
+<form class="mobile-filters">
+    <div class="mobile-filters__buttons">
+        <div class="exit-button" onclick="toggleMobileFilters();"><i class="fa fa-times" aria-hidden="true"></i></div>
+    </div>
+    <form>
+    <div class="mobile-primary-menu mobile-filters__menu">
+        <ul class="mobile-primary-menu">
+            <li class="mobile-menu-item">
+                <div class="wrapper-mobile-menu__option">
+                    <a class="mobile-menu__option">KSIĄŻKI Z KATEGORII</a>
+                    <!-- <button class="mobile-menu__option--button" onclick="toggleMenuLinks(this);"><i class="fa fa-angle-right" aria-hidden="true"></i></button> -->
+                    <div class="mobile-menu__option--button" onclick="toggleMenuLinks(this);"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
                 </div>
-<!--                 TAGI -->
-                <div class="subtitle">TAGI</div>
-                <div class="filters__tags">
-                    <div class="filters__tags--content">
-                        <div class="filters__search">
-                            <input type="text" placeholder="Wyszukaj według tagu">
-                        </div>
-                        <div class="filters__tags__list">
-                            {% for tag in tags  %}
-                            <div class="filters__tags__record">
-                                <input type="checkbox">
-                                <label>{{tag.name}}</label>
-                            </div>
-                            {% endfor %}
-                        </div>
-                    </div>
+                <ul class="mobile-menu__links mobile-filters__filters">
+                    <li class="mobile-menu__link--small">
+                        <ul class="filters">
+                           <li class="filters__option">
+                               <div class="filters__option-button" onclick="toggleFilterItems(this);"><i class="fa fa-angle-right" aria-hidden="true"></i>  belerystyka</div> 
+                               <ul class="filters__items">
+                                   <li class="filters__item">horror</li>
+                                   <li class="filters__item">klasyka</li>
+                                   <li class="filters__item">kryminał</li>
+                                   <li class="filters__item">kryminał</li>
+                               </ul>
+                           </li> 
+                           <li class="filters__option">
+                               <div class="filters__option-button" onclick="toggleFilterItems(this);"><i class="fa fa-angle-right" aria-hidden="true"></i>  belerystyka</div> 
+                               <ul class="filters__items">
+                                   <li class="filters__item">horror</li>
+                                   <li class="filters__item">klasyka</li>
+                                   <li class="filters__item">kryminał</li>
+                                   <li class="filters__item">kryminał</li>
+                               </ul>
+                           </li> 
+                           <li class="filters__option">
+                               <div class="filters__option-button" onclick="toggleFilterItems(this);"><i class="fa fa-angle-right" aria-hidden="true"></i>  belerystyka</div> 
+                               <ul class="filters__items">
+                                   <li class="filters__item">horror</li>
+                                   <li class="filters__item">klasyka</li>
+                                   <li class="filters__item">kryminał</li>
+                                   <li class="filters__item">kryminał</li>
+                               </ul>
+                           </li> 
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="mobile-menu-item">
+                <div class="wrapper-mobile-menu__option">
+                    <a class="mobile-menu__option">TAGI</a>
+                    <div class="mobile-menu__option--button" onclick="toggleMenuLinks(this);"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
                 </div>
-                <!-- DATA WYDANIA -->
-                <div class="subtitle">DATA WYDANIA</div>
-                <div class="filters__daterelease">
-                    <div class="filters__daterelease--content">
-                        <div>
-                            OD
-                            <input type="date">
+                <ul class="mobile-menu__links mobile-filters__filters">
+                    <li class="mobile-menu__link--small">
+                        <div class="catalog__filters-section">
+                            <div class="search-box filters__search-box">
+                                <input type="search" class="search-input filters__search-input" placeholder="szukaj">
+                                <div class="search-button filters__search-button"><i class="fa fa-search" aria-hidden="true"></i></div>
+                            </div>
+                            <ul class="filters">
+                                <div class="filters__grid">
+                                    <div class="filters__item">
+                                        <input type="checkbox" name="" id="">
+                                        <label for="">XD</label>
+                                    </div>
+                                    <div class="filters__item">
+                                        <input type="checkbox" name="lel" id="">
+                                        <label for="lel">XD</label>
+                                    </div>
+                                </div>
+                            </ul>
                         </div>
-                        <div>
-                            DO
-                            <input type="date">
-                        </div>
-                    </div>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="mobile-menu-item">
+                <div class="wrapper-mobile-menu__option">
+                    <a class="mobile-menu__option">DATA WYDANIA</a>
+                    <div class="mobile-menu__option--button" onclick="toggleMenuLinks(this);"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
                 </div>
-                <!-- AUTORZY -->
-                <div class="subtitle">AUTORZY</div>
-                <div class="filters__authors">
-                    <div class="filters__authors--content">
-                        <div class="filters__search">
-                            <input type="text" placeholder="Wyszukaj autora">
+                <ul class="mobile-menu__links mobile-filters__filters">
+                    <li class="mobile-menu__link--small">
+                        <div class="catalog__filters-section">
+                        <div class="filters filters--date">
+                            <div>
+                                <label for="dateFrom">OD</label>
+                                <input type="date" name="dateFrom" id="dateFrom" class="filters__date-input">
+                            </div>
+                            <div>
+                                <label for="dateTo">DO</label>
+                                <input type="date" name="dateTo" id="" class="filters__date-input">
+                            </div>
                         </div>
-                        <div class="filters__authors__list">
-                            <div class="filters__authors__record">
-                                <input type="checkbox">
-                                <label>andrzej sapkowski</label>
-                            </div>
-                            <div class="filters__authors__record">
-                                <input type="checkbox">
-                                <label>jakub żulczyk</label>
-                            </div>
-                            <div class="filters__authors__record">
-                                <input type="checkbox">
-                                <label>dmitrij głuchowski</label>
-                            </div>
-                            <div class="filters__authors__record">
-                                <input type="checkbox">
-                                <label>andrzej sapkowski</label>
-                            </div>
-                            <div class="filters__authors__record">
-                                <input type="checkbox">
-                                <label>jakub żulczyk</label>
-                            </div>
-                            <div class="filters__authors__record">
-                                <input type="checkbox">
-                                <label>dmitrij głuchowski</label>
-                            </div>
-                            
-                        </div>
-                    </div>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="mobile-menu-item">
+                <div class="wrapper-mobile-menu__option">
+                    <a class="mobile-menu__option">AUTORZY</a>
+                    <div class="mobile-menu__option--button" onclick="toggleMenuLinks(this);"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
                 </div>
-                <!-- WYDAWNICTWA -->
-                <div class="subtitle">WYDAWNICTWA</div>
-                <div class="filters__publishers">
-                    <div class="filters__publishers--content">
-                        <div class="filters__search">
-                            <input type="text" placeholder="Wyszukaj wydawnictwa">
+                <ul class="mobile-menu__links mobile-filters__filters">
+                    <li class="mobile-menu__link--small">
+                        <div class="catalog__filters-section">
+                            <div class="search-box filters__search-box">
+                                <input type="search" class="search-input filters__search-input" placeholder="szukaj">
+                                <div class="search-button filters__search-button"><i class="fa fa-search" aria-hidden="true"></i></div>
+                            </div>
+                            <ul class="filters">
+                                <div class="filters__grid">
+                                    <div class="filters__item">
+                                        <input type="checkbox" name="" id="">
+                                        <label for="">XD</label>
+                                    </div>
+                                    <div class="filters__item">
+                                        <input type="checkbox" name="lel" id="">
+                                        <label for="lel">XD</label>
+                                    </div>
+                                </div>
+                            </ul>
                         </div>
-                        <div class="filters__publishers__list">
-                            <div class="filters__publishers__record">
-                                <input type="checkbox">
-                                <label>Andrzej Sapkowski</label>
-                            </div>
-                            <div class="filters__publishers__record">
-                                <input type="checkbox">
-                                <label>Jakub Żulczyk</label>
-                            </div>
-                            <div class="filters__publishers__record">
-                                <input type="checkbox">
-                                <label>Dmitrij Głuchowski</label>
-                            </div>
-                        </div>
-                    </div>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="mobile-menu-item">
+                <div class="wrapper-mobile-menu__option">
+                    <a class="mobile-menu__option">WYDAWNICTWA</a>
+                    <div class="mobile-menu__option--button" onclick="toggleMenuLinks(this);"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
                 </div>
-                <button class="filters__mobile--exit" onclick="hideFilters();">WYJŚCIE</button>
+                <ul class="mobile-menu__links mobile-filters__filters">
+                    <li class="mobile-menu__link--small">
+                        <div class="catalog__filters-section">
+                            <div class="search-box filters__search-box">
+                                <input type="search" class="search-input filters__search-input" placeholder="szukaj">
+                                <div class="search-button filters__search-button"><i class="fa fa-search" aria-hidden="true"></i></div>
+                            </div>
+                            <ul class="filters">
+                                <div class="filters__grid">
+                                    <div class="filters__item">
+                                        <input type="checkbox" name="" id="">
+                                        <label for="">XD</label>
+                                    </div>
+                                    <div class="filters__item">
+                                        <input type="checkbox" name="lel" id="">
+                                        <label for="lel">XD</label>
+                                    </div>
+                                </div>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+    <div class="mobile-filters__save">
+        <input type="submit" value="ZAPISZ" class="mobile-filters__submit">
+    </div>
+    </form>
+</form>
+
+<div class="catalog__main">
+    <div class="wrapper-catalog__filters-button">
+        <button class="button-whitebg catalog__filters-button" onclick="toggleMobileFilters();" style="width: 100%;">FILTRY</button>
+    </div>
+   
+    <div class="catalog__filters">
+        <h1 class="label" style="text-align: left;">FILTRY</h1>
+        <div class="catalog__filters-section">
+            <h4>KSIĄŻKI Z KATEGORII</h4>
+            <ul class="filters">
+               {% for category in categories  %}
+               <li class="filters__option">
+                   <div class="filters__option-button" onclick="toggleFilterItems(this);"><i class="fa fa-angle-right" aria-hidden="true"></i>{{category}}</div> 
+                   <ul class="filters__items">
+                       {% for subcategory in category.subbookcategories_set.all  %}
+                       <li class="filters__item">{{subcategory.subCategoryName}}</li>
+                       {% endfor %}
+                   </ul>
+               </li> 
+               {% endfor %} 
+
+            </ul>
+        </div>
+        
+        
+        <div class="catalog__filters-section">
+            <h4>Tagi</h4>
+            <div class="search-box filters__search-box">
+                <input type="search" class="search-input filters__search-input" placeholder="szukaj">
+                <button class="search-button filters__search-button"><i class="fa fa-search" aria-hidden="true"></i></button>
             </div>
-            <div class="books__content">
-                <div class="label">KSIĄŻKI</div>
-                <div class="sort">
-                    <label>Sortuj:</label>
-                    <select>
-                        <option>Data wydania malejąco</option>
-                    </select>
-                </div>
-                <div class="books__list">
-                    {% for book in books%}
-                    <div class="book">
-                        <div class="book__picture">
-                            <img src="{{book.image.url}}">
-                        </div>
-                        <div class="book__info">
-                            <h3 class="info__title"><a href="{{book.id}}">{{book.title}}</a></h3>
-                            <p class="info__author"><a href="{{book.id}}">{{book.author}}</a></p>
-                            <div class="book__buttons">
-                                <button class="book__button">DODAJ NA PÓŁKĘ</button>
-                            </div>
-                        </div>
+            <div class="filters">
+                <h5>Najpopularniejsze</h5>
+                <div class="filters__grid">
+                    <div class="filters__item">
+                        <input type="checkbox" name="lel" id="">
+                        <label for="lel">XD</label>
                     </div>
-                    {% endfor %}
+                    <div class="filters__item">
+                        <input type="checkbox" name="lel" id="">
+                        <label for="lel">XD</label>
+                    </div>
+                    <div class="filters__item">
+                        <input type="checkbox" name="lel" id="">
+                        <label for="lel">XD</label>
+                    </div>
+                    <div class="filters__item">
+                        <input type="checkbox" name="lel" id="">
+                        <label for="lel">XD</label>
+                    </div>
+                    <div class="filters__item">
+                        <input type="checkbox" name="lel" id="">
+                        <label for="lel">XD</label>
+                    </div>
+                    <div class="filters__item">
+                        <input type="checkbox" name="lel" id="">
+                        <label for="lel">XD</label>
+                    </div>
+                    <div class="filters__item">
+                        <input type="checkbox" name="lel" id="">
+                        <label for="lel">XD</label>
+                    </div>
+                    <div class="filters__item">
+                        <input type="checkbox" name="lel" id="">
+                        <label for="lel">XD</label>
+                    </div>
+                    <div class="filters__item">
+                        <input type="checkbox" name="lel" id="">
+                        <label for="lel">XD</label>
+                    </div>
+                    <div class="filters__item">
+                        <input type="checkbox" name="lel" id="">
+                        <label for="lel">XD</label>
+                    </div>
+                </div> 
+            </div>
+        </div>
+        
+        <div class="catalog__filters-section">
+            <h4>DATA WYADANIA</h4>
+            <div class="filters filters--date">
+                <div>
+                    <label for="dateFrom">OD</label>
+                    <input type="date" name="dateFrom" id="dateFrom" class="filters__date-input">
+                </div>
+                <div>
+                    <label for="dateTo">DO</label>
+                    <input type="date" name="dateTo" id="" class="filters__date-input">
                 </div>
             </div>
-        </section>
+
+        </div>
+
+        <div class="catalog__filters-section">
+            <h4>Tagi</h4>
+            <div class="search-box filters__search-box">
+                <input type="search" class="search-input filters__search-input" placeholder="szukaj">
+                <button class="search-button filters__search-button"><i class="fa fa-search" aria-hidden="true"></i></button>
+            </div>
+            <div class="filters">
+                <h5>Najpopularniejsze</h5>
+                <div class="filters__grid">
+                    <div class="filters__item">
+                        <input type="checkbox" name="lel" id="">
+                        <label for="lel">XD</label>
+                    </div>
+                    <div class="filters__item">
+                        <input type="checkbox" name="lel" id="">
+                        <label for="lel">XD</label>
+                    </div>
+                    <div class="filters__item">
+                        <input type="checkbox" name="lel" id="">
+                        <label for="lel">XD</label>
+                    </div>
+                    <div class="filters__item">
+                        <input type="checkbox" name="lel" id="">
+                        <label for="lel">XD</label>
+                    </div>
+                    <div class="filters__item">
+                        <input type="checkbox" name="lel" id="">
+                        <label for="lel">XD</label>
+                    </div>
+                    <div class="filters__item">
+                        <input type="checkbox" name="lel" id="">
+                        <label for="lel">XD</label>
+                    </div>
+                    <div class="filters__item">
+                        <input type="checkbox" name="lel" id="">
+                        <label for="lel">XD</label>
+                    </div>
+                    <div class="filters__item">
+                        <input type="checkbox" name="lel" id="">
+                        <label for="lel">XD</label>
+                    </div>
+                    <div class="filters__item">
+                        <input type="checkbox" name="lel" id="">
+                        <label for="lel">XD</label>
+                    </div>
+                    <div class="filters__item">
+                        <input type="checkbox" name="lel" id="">
+                        <label for="lel">XD</label>
+                    </div>
+                </div> 
+            </div>
+       </div>
+        <div class="catalog__filters-section">
+            <h4>Tagi</h4>
+            <div class="search-box filters__search-box">
+                <input type="search" class="search-input filters__search-input" placeholder="szukaj">
+                <button class="search-button filters__search-button"><i class="fa fa-search" aria-hidden="true"></i></button>
+            </div>
+            <div class="filters">
+                <h5>Najpopularniejsze</h5>
+                <div class="filters__grid">
+                    <div class="filters__item">
+                        <input type="checkbox" name="lel" id="">
+                        <label for="lel">XD</label>
+                    </div>
+                    <div class="filters__item">
+                        <input type="checkbox" name="lel" id="">
+                        <label for="lel">XD</label>
+                    </div>
+                    <div class="filters__item">
+                        <input type="checkbox" name="lel" id="">
+                        <label for="lel">XD</label>
+                    </div>
+                    <div class="filters__item">
+                        <input type="checkbox" name="lel" id="">
+                        <label for="lel">XD</label>
+                    </div>
+                    <div class="filters__item">
+                        <input type="checkbox" name="lel" id="">
+                        <label for="lel">XD</label>
+                    </div>
+                    <div class="filters__item">
+                        <input type="checkbox" name="lel" id="">
+                        <label for="lel">XD</label>
+                    </div>
+                    <div class="filters__item">
+                        <input type="checkbox" name="lel" id="">
+                        <label for="lel">XD</label>
+                    </div>
+                    <div class="filters__item">
+                        <input type="checkbox" name="lel" id="">
+                        <label for="lel">XD</label>
+                    </div>
+                    <div class="filters__item">
+                        <input type="checkbox" name="lel" id="">
+                        <label for="lel">XD</label>
+                    </div>
+                    <div class="filters__item">
+                        <input type="checkbox" name="lel" id="">
+                        <label for="lel">XD</label>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="catalog__content">
+        <h1 class="label" style="text-align: left;">KSIĄŻKI</h1>
+        <div>
+            <h4 class="catalog__results">Posortuj:</h4>
+            <select name="catalog__sort" id="" class="catalog__sort">
+                <option value="">Liczba ocen malejąco</option> 
+                <option value="">Liczba ocen rosnąco</option> 
+                <option value="">Data wydania malejąco</option> 
+                <option value="">Data wydania rosnąco</option> 
+            </select>
+        </div>
+
+        <div class="catalog__books-list">
+            
+            {% for book in books  %}
+            <div class="catalog__book">
+                <div class="catalog__book-primary">
+                    <a href="{{book.id}}">
+                        <img src="{{book.image.url}}" class="catalog__book-img book__img">
+                    </a>
+                    <div class="catalog__book-info">
+                        <a href="{{book.id}}" style="text-decoration:none;"><h4 class="book__title" style="max-width:100%;">{{book.title}}</h4></a>
+                        <h5 class="book__author">{{book.author}}</h5>
+                    </div>
+                </div>
+                <div class="catalog__book-secondary">
+
+                    <div class="catalog__book-button">
+                        <div class="button-whitebg button-whitebg--small">DODAJ KSIĄŻKE</div> 
+                    </div>
+
+                    <div class="catalog__book-button">
+                        <div class="button-whitebg button-whitebg--small">KUP KSIĄŻKE</div> 
+                    </div>
+
+                </div>
+            </div>
+
+            {% endfor %}
+
+
+
+
+        </div>
+
+    </div>
+</div>
+
+</div>
+
+
 {% endblock content %}

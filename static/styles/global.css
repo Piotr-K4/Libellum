@@ -1,0 +1,115 @@
+*{
+    font-family: "Roboto";
+}
+
+body{
+    margin: 0;
+    /* background-image: url(./images/backgroundv3.jpg); */
+    box-shadow: rgb(215, 215, 215) 0px 0px 0px 1px, ;
+    background-color: #F9F9F9;
+}
+
+form{
+    margin: 0;
+}
+
+.page-container{
+    max-width: 1360px;
+    min-height: 100%;
+    margin: 0 auto;
+    /* padding: 0 1rem; */
+    box-sizing: border-box;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.label{
+    color: #4E4F50;
+    display: block;
+    font-weight: 400;
+    letter-spacing: -1.5px;
+    line-height: 95%;
+    text-align: center;
+}
+
+.label--left{
+    text-align: left;
+}
+
+.label-box{
+    background-color: #3a4c5a;
+    color: white;
+    padding: 1rem;
+    max-width: 100%;    
+}
+
+
+.text{
+    color: #3a4c5a;
+}
+
+
+::-webkit-scrollbar{
+    height: 5px;
+    width: 2px;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #4E4F50;
+    border-radius: 20px;
+}
+
+
+
+.button-whitebg{
+    background-color: white;
+    border: 2px solid #3a4c5a;
+    color: #3a4c5a;
+    font-size: 1em;
+    padding: 1em;
+    transition: 0.3s;
+    text-align: center;
+    text-decoration: none;
+}
+
+.button-whitebg--small{
+    font-size: 0.7em;
+    padding: 0.5rem;
+}
+
+.button-whitebg:focus,
+.button-whitebg:hover{
+    color: white;
+    background-color: #3a4c5a;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 2rem;
+}
+
+.form__field label{
+    display: block;
+    text-align: left;
+    font-weight: 300;
+    padding-bottom: 0.2rem;
+}
+
+.form__field input{
+    height: 2rem;
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid grey;
+    outline: none;
+    transition: 0.4s;
+}
+
+.form__field input:hover,
+.form__field input:focus{
+    border-color: #3a4c5a;
+}

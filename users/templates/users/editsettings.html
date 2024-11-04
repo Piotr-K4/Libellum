@@ -2,50 +2,32 @@
 {% load static %}
 
 {% block content %}
-<div class="usersettings">
-            <div class="usersettings__content">
-                <form class="usersettings__form" method="POST" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <div class="label usersettings__label">EDYTUJ USTAWIENIA</div>
-                    <div class="usersettings__userInfo">
-                        <!-- <div class="usersettings__userInfo__field"> -->
-                        <!--     <p class="usersettings__subtitle">Avatar</p> -->
-                        <!--     <input type="file"> -->
-                        <!-- </div> -->
-                        <!-- <div class="usersettings__userInfo__field"> -->
-                        <!--     <p class="usersettings__subtitle">Pseudonim</p> -->
-                        <!--     <input type="text"> -->
-                        <!-- </div> -->
-                        <!-- <div class="usersettings__userInfo__field"> -->
-                        <!--     <p class="usersettings__subtitle">Imie</p> -->
-                        <!--     <input type="text"> -->
-                        <!-- </div> -->
-                        <!-- <div class="usersettings__userInfo__field"> -->
-                        <!--     <p class="usersettings__subtitle">Nazwisko</p> -->
-                        <!--     <input type="text"> -->
-                        <!-- </div> -->
-                        <!-- <div class="usersettings__userInfo__field"> -->
-                        <!--     <p class="usersettings__subtitle">Płeć</p> -->
-                        <!--     <select> -->
-                        <!--         <option value="Mężczynza">Mężczynza</option> -->
-                        <!--         <option value="Kobieta">Kobieta</option> -->
-                        <!--     </select> -->
-                        <!-- </div> -->
-                        <!-- <div class="usersettings__userInfo__field"> -->
-                        <!--     <p class="usersettings__subtitle">Data urodzenia</p> -->
-                        <!--     <input type="date"> -->
-                        <!-- </div> -->
-                        {% for field in form  %}
-                        <div class="usersettings__userInfo__field">
-                            <p class="usersettings__subtitle">{{field.label}}</p>
-                            {{field}}
-                        </div>
-                        {% endfor %}
-                    </div>
-                    <input type="submit" class="usersettings__submit" value="ZAPISZ ZMIANY">
-                </form>
+<section class="accountUser" style="flex-direction: column;;">
+    <h1 class="label">USTAWIENIA</h1>
+    <hr>
+    <div class="accountUser__profile">
+        <img src="../images/all/terry.jpg">
+    </div>
+   
+    <form action="" class="userSettings">        
+        
+        {% csrf_token %}
+        
+        {% for field in form  %}
 
-            </div>
+        <div class="userSettings__field form__field">
+            <p class="userSettings__field--label">{{field.label}}</p>
+            {{field}}
         </div>
+        
+        {% endfor %}
+
+    <input type="submit" value="ZAPISZ ZMIANY" class="button-whitebg" style="margin-top: 2rem;">
+
+    </form>
+
+</section>
+
+
 
 {% endblock content %}
